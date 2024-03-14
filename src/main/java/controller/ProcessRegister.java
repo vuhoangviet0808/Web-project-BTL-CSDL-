@@ -52,7 +52,7 @@ public class ProcessRegister extends HttpServlet {
         }
         boolean checkUserExisted = UserDao.checkUserExisted(username);
         if (!checkUserExisted) {
-            boolean registerSuccess = UserDao.handleRegister(username, password, firstName, lastName, gender, birthday);
+            boolean registerSuccess = UserDao.handleRegister(username, password, firstName, lastName, gender);
             if (registerSuccess) {
                 response.setContentType("text/html;charset=UTF-8");
                 RequestDispatcher dis = request.getRequestDispatcher("registerSuccess.jsp");

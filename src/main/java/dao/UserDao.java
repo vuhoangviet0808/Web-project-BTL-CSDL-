@@ -33,11 +33,11 @@ public class UserDao {
         return null;
     }
 
-    public static boolean handleRegister(String username, String password, String first_name, String last_name, String gender, String birthday) {
+    public static boolean handleRegister(String username, String password, String first_name, String last_name, String gender) {
         try (Connection c = openConnection())
         {
             System.out.printf("Insert record into the table...\n");
-            String select = String.format("INSERT INTO users VALUES (null, '%s', '%s', '%s', '%s', '%s', '%s')", username, password, first_name, last_name, gender, birthday);
+            String select = String.format("INSERT INTO users VALUES (null, '%s', '%s', '%s', '%s', '%s', null)", username, password, first_name, last_name, gender);
             Statement s = c.createStatement();
             int a = s.executeUpdate(select);
             return a != 0;

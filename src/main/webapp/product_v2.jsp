@@ -365,12 +365,12 @@
         }
 
         /* Cable Configuration */
-        .cable-choose {
+        .size-choose {
             margin-top: 10px;
             margin-bottom: 20px;
         }
 
-        .cable-choose button {
+        .size-choose button {
             border: 2px solid #E1E8EE;
             border-radius: 6px;
             padding: 13px 20px;
@@ -381,20 +381,26 @@
             transition: all .5s;
         }
 
-        .cable-choose button:hover,
-        .cable-choose button:active,
-        .cable-choose button:focus {
+        .size-choose button:hover,
+        .size-choose button:active,
+        .size-choose button:focus {
             outline: none;
             background-color: #e07c51;
             color: white;
         }
-
-        .cable-config {
+        .quantity-button:hover,
+        .quantity-button:active,
+        .quantity-button:focus {
+            outline: none;
+            background-color: #e07c51;
+            color: white;
+        }
+        .size-config {
             border-bottom: 1px solid #E1E8EE;
             margin-bottom: 20px;
         }
 
-        .cable-config a {
+        .size-config a {
             color: #358ED7;
             text-decoration: none;
             font-size: 12px;
@@ -403,7 +409,7 @@
             display: inline-block;
         }
 
-        .cable-config a:before {
+        .size-config a:before {
             content: "?";
             height: 15px;
             width: 15px;
@@ -437,6 +443,8 @@
             text-decoration: none;
             padding: 12px 30px;
             transition: all .5s;
+            border: none;
+            outline: none;
         }
 
         .cart-btn:hover {
@@ -458,7 +466,7 @@
     <body>
         <% if (prod != null) { %>
         <%-- Process product found --%>
-        <main class="container">
+        <main class="container" style="border-bottom: 1px solid #bdbdbd; padding-bottom: 60px">
 
             <!-- Left Column / Headphones Image -->
             <div class="left-column">
@@ -490,21 +498,78 @@
                 <div class="product-configuration">
                     <br><br>
                     <!-- Cable Configuration -->
-                    <div class="cable-config">
+                    <div class="size-config">
                         <span style="font-size: 16px">Chọn size (bắt buộc)</span>
-                        <div class="cable-choose">
-                            <button>Nhỏ + 0 đ</button>
-                            <button>Vừa + 6.0000 đ</button>
-                            <button>Lớn + 16.000 đ</button>
+                        <div class="size-choose">
+                            <button id="small">Nhỏ + 0 đ</button>
+                            <button id="medium">Vừa + 6.0000 đ</button>
+                            <button id="big">Lớn + 16.000 đ</button>
                         </div>
 
                     </div>
                 </div>
+                <form>
+                    <label for="quantity">Số lượng:</label>
+                    <div>
+                        <button type="button" onclick="decrement()" class="quantity-button">-</button>
+                        <input type="text" id="quantity" name="quantity" value="1" style="">
+                        <button type="button" onclick="increment()" class="quantity-button">+</button>
+                    </div>
+                    <br>
+                    <input class="cart-btn" type="submit" value="Thêm vào giỏ hàng">
+                </form>
 
-
-                <a href="#" class="cart-btn">Thêm vào giỏ hàng</a>
             </div>
         </main>
+
+
+        <script>
+            function increment() {
+                var quantityField = document.getElementById('quantity');
+                var currentValue = parseInt(quantityField.value);
+                quantityField.value = currentValue + 1;
+            }
+
+            function decrement() {
+                var quantityField = document.getElementById('quantity');
+                var currentValue = parseInt(quantityField.value);
+                if (currentValue > 1) {
+                    quantityField.value = currentValue - 1;
+                }
+            }
+
+
+            // Lấy phần hiển thị giá tiền
+            var priceDisplay = document.querySelector(".product-price span");
+
+            // Lấy các button kích thước
+            var smallButton = document.getElementById("small");
+            var mediumButton = document.getElementById("medium");
+            var bigButton = document.getElementById("big");
+
+            // Lấy giá tiền ban đầu
+            var initialPrice = <%= prod.getPrice()%>;
+
+            // Thiết lập sự kiện click cho mỗi button
+            smallButton.addEventListener("click", function() {
+                updatePrice(0);
+            });
+
+            mediumButton.addEventListener("click", function() {
+                updatePrice(6000);
+            });
+
+            bigButton.addEventListener("click", function() {
+                updatePrice(16000);
+            });
+
+            // Hàm cập nhật giá tiền khi chọn kích thước
+            function updatePrice(additionalPrice) {
+                var newPrice = initialPrice + additionalPrice;
+                priceDisplay.textContent = newPrice.toLocaleString() + " đ"; // Cập nhật giá mới và định dạng số
+            }
+
+        </script>
         <% } else { %>
         <style>
 
