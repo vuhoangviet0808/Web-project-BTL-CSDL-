@@ -130,6 +130,14 @@
 
     </style>
 
+
+    <% String productAddedMessage = (String) request.getAttribute("productAddedMessage");
+        if (productAddedMessage != null) {
+            System.out.println(productAddedMessage);%>
+    <div><%=productAddedMessage%></div>
+    <% } %>
+
+
     <div class="top-bar">
         <span class="phone-icon">&#128222;</span> <!-- Biểu tượng hình điện thoại -->
         <span class="phone-number">Order: 0936 849 516</span>
@@ -512,13 +520,13 @@
                     </div>
                 </div>
                 <br>
-                <label for="quantity">Số lượng:</label>
+                <label for="quantity">Số lượng</label>
                 <div>
                     <button type="button" onclick="decrement()" class="quantity-button">-</button>
                     <input type="text" id="quantity" name="quantity" value="1" style="">
                     <button type="button" onclick="increment()" class="quantity-button">+</button>
                 </div>
-
+                <br><br>
                 <form method="POST" action="./product" id="add-to-cart">
                     <input type="hidden" id="title-form" name="title-form" value="<%=prod.getTitle()%>">
                     <input type="hidden" id="price-form" name="price-form" value="">

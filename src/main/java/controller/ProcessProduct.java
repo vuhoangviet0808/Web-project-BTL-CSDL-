@@ -78,10 +78,27 @@ public class ProcessProduct extends HttpServlet {
         System.out.println(title);
 
         ProductInCart product = new ProductInCart(title, 1, Integer.parseInt(quantity), option);
-        cart.add(product);
+        boolean check = false;
+        int cartNumber = cart.size();
+        for (int i = 0; i < cartNumber; i++)
+        {
+            ProductInCart prod = cart.get(i);
+            if (prod.equals(product))
+            {
+                check = true;
+                prod.setQuantity(prod.getQuantity() + product.getQuantity());
+                break;
+            }
+        }
+        if (check == false) cart.add(product);
+
+
         session.setAttribute("cart", cart);
 
         String id = (String) request.getParameter("product-id");
+        String productAddedMessage = "Product was added to cart.";
+
+        request.setAttribute("productAddedMessage", productAddedMessage);
         Product prod = ProductDAO.getProductById(Integer.parseInt(id));
         Category productCategory = CategoryDAO.getCategoryById(prod.getCategory_id());
         request.setAttribute("productCategory", productCategory);

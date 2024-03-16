@@ -28,6 +28,7 @@
         <%= prod.getPrice()%>
         <%= prod.getOption()%>
         <%= prod.getQuantity()%>
+        <br>
         <% } %>
         <% } %>
 
