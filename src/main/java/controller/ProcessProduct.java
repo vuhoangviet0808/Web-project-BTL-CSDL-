@@ -63,12 +63,22 @@ public class ProcessProduct extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // gia tien, so luong san pham, thuoc tinh san pham se duoc xu ly o  Product.jsp
         HttpSession session = request.getSession();
-        ArrayList<ProductInCart> cart = (ArrayList<ProductInCart>) session.getAttribute("cart");
-        if (cart == null)
+        ArrayList<ProductInCart> cart = new ArrayList<>();
+        if (session.getAttribute("cart") != null)
         {
-            session.setAttribute("cart", cart);
+            cart = (ArrayList<ProductInCart>) session.getAttribute("cart");
         }
         String quantity = request.getParameter("quantity-form");
         System.out.println(quantity);
-    }
+        String option = request.getParameter("option-form");
+        System.out.println(option);
+        String price = request.getParameter("price-form");
+        System.out.println(price);
+        String title = request.getParameter("title-form");
+        System.out.println(title);
+
+        ProductInCart product = new ProductInCart(title, 1, Integer.parseInt(quantity), option);
+        cart.add(product);
+        session.setAttribute("cart", cart);
+        }
 }

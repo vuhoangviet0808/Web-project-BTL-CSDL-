@@ -8,6 +8,7 @@
 <html lang="en">
     <%@page contentType="text/html" pageEncoding="UTF-8" %>
     <head>
+        <script src="https://cdn.jsdelivr.net/npm/he@1.2.0/he.js"></script>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
         <link rel="shortcut icon" href="resources/Banner/d.png" type="image/x-icon"/>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
@@ -519,6 +520,7 @@
                 </div>
 
                 <form method="POST" action="./product" id="add-to-cart">
+                    <input type="hidden" id="title-form" name="title-form" value="<%=prod.getTitle()%>">
                     <input type="hidden" id="price-form" name="price-form" value="">
                     <input type="hidden" id="option-form" name="option-form" value="">
                     <input type="hidden" id="quantity-form" name="quantity-form" value="">
@@ -545,7 +547,7 @@
                 }
             }
 
-
+            var optionForm = document.getElementById("option-form");
             // Lấy phần hiển thị giá tiền
             var priceDisplay = document.querySelector(".product-price span");
 
@@ -560,14 +562,17 @@
             // Thiết lập sự kiện click cho mỗi button
             smallButton.addEventListener("click", function () {
                 updatePrice(0);
+                optionForm.value = he.decode('Small');
             });
 
             mediumButton.addEventListener("click", function () {
                 updatePrice(6000);
+                optionForm.value = 'Medium';
             });
 
             bigButton.addEventListener("click", function () {
                 updatePrice(16000);
+                optionForm.value = 'Big';
             });
 
             // Hàm cập nhật giá tiền khi chọn kích thước
