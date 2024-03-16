@@ -77,7 +77,7 @@ public class ProcessProduct extends HttpServlet {
         String title = request.getParameter("title-form");
         System.out.println(title);
 
-        ProductInCart product = new ProductInCart(title, 1, Integer.parseInt(quantity), option);
+        ProductInCart product = new ProductInCart(title, Integer.parseInt(price), Integer.parseInt(quantity), option);
         boolean check = false;
         int cartNumber = cart.size();
         for (int i = 0; i < cartNumber; i++)

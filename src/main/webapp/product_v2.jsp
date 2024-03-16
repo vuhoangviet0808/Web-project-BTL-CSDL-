@@ -502,7 +502,7 @@
 
                 <!-- Product Pricing -->
                 <div class="product-price">
-                    <span style="font-size: 26px; color: #e07c51; font-weight: 600"><%= CurrencyService.formatPrice(prod.getPrice())%> đ</span>
+                    <div id="div-price" style="font-size: 26px; color: #e07c51; font-weight: 600"><%= CurrencyService.formatPrice(prod.getPrice())%> đ</div>
                 </div>
 
                 <!-- Product Configuration -->
@@ -558,7 +558,7 @@
 
             var optionForm = document.getElementById("option-form");
             // Lấy phần hiển thị giá tiền
-            var priceDisplay = document.querySelector(".product-price span");
+            var priceDisplay = document.querySelector(".product-price div");
 
             // Lấy các button kích thước
             var smallButton = document.getElementById("small");
@@ -597,7 +597,10 @@
             }
 
             function getPrice() {
-                return document.querySelector(".product-price span");
+                var price = document.getElementById('div-price');
+                var valueWithComma = price.textContent.trim();
+                var valueWithoutComma = valueWithComma.replace(',', '');
+                return valueWithoutComma.slice(0, -2);
             }
 
             document.getElementById('add-to-cart').addEventListener('submit', function (event) {
