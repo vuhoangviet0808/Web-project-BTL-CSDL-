@@ -4,6 +4,7 @@ import dao.CategoryDAO;
 import dao.ProductDAO;
 import model.Category;
 import model.Product;
+import model.ProductInCart;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -60,6 +61,14 @@ public class ProcessProduct extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        // gia tien, so luong san pham, thuoc tinh san pham se duoc xu ly o  Product.jsp
+        HttpSession session = request.getSession();
+        ArrayList<ProductInCart> cart = (ArrayList<ProductInCart>) session.getAttribute("cart");
+        if (cart == null)
+        {
+            session.setAttribute("cart", cart);
+        }
+        String quantity = request.getParameter("quantity-form");
+        System.out.println(quantity);
     }
 }

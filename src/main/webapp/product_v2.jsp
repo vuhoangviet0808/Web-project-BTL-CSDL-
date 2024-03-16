@@ -388,6 +388,7 @@
             background-color: #e07c51;
             color: white;
         }
+
         .quantity-button:hover,
         .quantity-button:active,
         .quantity-button:focus {
@@ -395,6 +396,7 @@
             background-color: #e07c51;
             color: white;
         }
+
         .size-config {
             border-bottom: 1px solid #E1E8EE;
             margin-bottom: 20px;
@@ -508,14 +510,18 @@
 
                     </div>
                 </div>
-                <form>
-                    <label for="quantity">Số lượng:</label>
-                    <div>
-                        <button type="button" onclick="decrement()" class="quantity-button">-</button>
-                        <input type="text" id="quantity" name="quantity" value="1" style="">
-                        <button type="button" onclick="increment()" class="quantity-button">+</button>
-                    </div>
-                    <br>
+                <br>
+                <label for="quantity">Số lượng:</label>
+                <div>
+                    <button type="button" onclick="decrement()" class="quantity-button">-</button>
+                    <input type="text" id="quantity" name="quantity" value="1" style="">
+                    <button type="button" onclick="increment()" class="quantity-button">+</button>
+                </div>
+
+                <form method="POST" action="./product" id="add-to-cart">
+                    <input type="hidden" id="price-form" name="price-form" value="">
+                    <input type="hidden" id="option-form" name="option-form" value="">
+                    <input type="hidden" id="quantity-form" name="quantity-form" value="">
                     <input class="cart-btn" type="submit" value="Thêm vào giỏ hàng">
                 </form>
 
@@ -524,6 +530,7 @@
 
 
         <script>
+
             function increment() {
                 var quantityField = document.getElementById('quantity');
                 var currentValue = parseInt(quantityField.value);
@@ -551,15 +558,15 @@
             var initialPrice = <%= prod.getPrice()%>;
 
             // Thiết lập sự kiện click cho mỗi button
-            smallButton.addEventListener("click", function() {
+            smallButton.addEventListener("click", function () {
                 updatePrice(0);
             });
 
-            mediumButton.addEventListener("click", function() {
+            mediumButton.addEventListener("click", function () {
                 updatePrice(6000);
             });
 
-            bigButton.addEventListener("click", function() {
+            bigButton.addEventListener("click", function () {
                 updatePrice(16000);
             });
 
@@ -569,6 +576,26 @@
                 priceDisplay.textContent = newPrice.toLocaleString() + " đ"; // Cập nhật giá mới và định dạng số
             }
 
+            // Process form submit
+
+            function getQuantity() {
+                return document.getElementById('quantity').value;
+            }
+
+            function getPrice() {
+                return document.querySelector(".product-price span");
+            }
+
+            document.getElementById('add-to-cart').addEventListener('submit', function (event) {
+                // Ngăn chặn hành động mặc định của biểu mẫu (chẳng hạn, gửi yêu cầu HTTP)
+                event.preventDefault();
+
+                // Đặt giá trị của trường ẩn trong biểu mẫu thành số lượng
+                document.getElementById('quantity-form').value = getQuantity();
+                document.getElementById("price-form").value = getPrice();
+                // Gửi biểu mẫu
+                this.submit();
+            });
         </script>
         <% } else { %>
         <style>
@@ -624,8 +651,6 @@
                         <div class="col-sm-10 col-sm-offset-1  text-center">
                             <div class="four_zero_four_bg">
                                 <h1 class="text-center ">404</h1>
-
-
                             </div>
 
                             <div class="contant_box_404">
