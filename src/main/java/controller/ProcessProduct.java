@@ -80,5 +80,13 @@ public class ProcessProduct extends HttpServlet {
         ProductInCart product = new ProductInCart(title, 1, Integer.parseInt(quantity), option);
         cart.add(product);
         session.setAttribute("cart", cart);
+
+        String id = (String) request.getParameter("product-id");
+        Product prod = ProductDAO.getProductById(Integer.parseInt(id));
+        Category productCategory = CategoryDAO.getCategoryById(prod.getCategory_id());
+        request.setAttribute("productCategory", productCategory);
+        request.setAttribute("product", prod);
+        RequestDispatcher rd = request.getRequestDispatcher("product_v2.jsp");
+        rd.forward(request, response);
         }
 }

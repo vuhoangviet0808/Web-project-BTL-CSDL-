@@ -524,6 +524,7 @@
                     <input type="hidden" id="price-form" name="price-form" value="">
                     <input type="hidden" id="option-form" name="option-form" value="">
                     <input type="hidden" id="quantity-form" name="quantity-form" value="">
+                    <input type="hidden" id="product-id" name="product-id" value="<%=prod.getId()%>">
                     <input class="cart-btn" type="submit" value="Thêm vào giỏ hàng">
                 </form>
 
