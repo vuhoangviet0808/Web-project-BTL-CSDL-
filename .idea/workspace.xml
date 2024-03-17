@@ -37,8 +37,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Add new Servlet" />
-        <option value="Class" />
         <option value="Jsp File" />
+        <option value="Class" />
+        <option value="servlet" />
       </list>
     </option>
   </component>
@@ -99,7 +100,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/LynG/Downloads/mysql-connector-j-8.0.32.jar&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/demo2&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -311,6 +312,8 @@
       <workItem from="1710600480878" duration="4836000" />
       <workItem from="1710606183249" duration="448000" />
       <workItem from="1710609106554" duration="423000" />
+      <workItem from="1710668892138" duration="4857000" />
+      <workItem from="1710680814349" duration="345000" />
     </task>
     <task id="LOCAL-00001" summary="First commit">
       <option name="closed" value="true" />
