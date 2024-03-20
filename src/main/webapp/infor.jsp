@@ -268,9 +268,9 @@
 <body>
     <div class="card">
         <%if(user.getGender().equals("male")){%>
-        <img src="resources/Banner/avartar_nam.jpg" alt="male" style="width:100%">
+        <img src="resources/Banner/avatar_nam.jpg" alt="male" style="width:100%">
         <%} else {%>
-        <img src="resources/Banner/avartar_nu.jpg" alt="female" style="width:100%">
+        <img src="resources/Banner/avatar_nu.jpg" alt="female" style="width:100%">
         <%}%>
         <h1 class = title>User Information</h1>
         <p >Name: <%=user.getFirst_name() + " " + user.getLast_name()%></p>

@@ -7,10 +7,11 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
-
-<html>
+<!DOCTYPE html>
+<html >
     <head>
         <title>Title</title>
+        <meta charset="UTF-8">
         <link rel="shortcut icon" href="resources/Banner/d.png" type="image/x-icon"/>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
         <title>Linh Coffee - For The Good Teacher</title>
@@ -24,7 +25,7 @@
         } else {
             for (ProductInCart prod : cart) {
         %>
-        <%= prod.getTitle()%>
+        <p><%= prod.getTitle()%></p>
         <%= prod.getPrice()%>
         <%= prod.getOption()%>
         <%= prod.getQuantity()%>

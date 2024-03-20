@@ -25,6 +25,13 @@ public class ProcessProduct extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+//        HttpSession session = request.getSession();
+//        ArrayList<ProductInCart> cart = new ArrayList<>();
+//        if (session.getAttribute("cart") != null)
+//        {
+//            cart = (ArrayList<ProductInCart>) session.getAttribute("cart");
+//        }
+//        session.setAttribute("cart", cart);
         String id = (String) request.getParameter("id");
         String type = (String) request.getParameter("type");
         System.out.println(id);
@@ -73,11 +80,14 @@ public class ProcessProduct extends HttpServlet {
         String option = request.getParameter("option-form");
         System.out.println(option);
         String price = request.getParameter("price-form");
+        price = price.trim();
         System.out.println(price);
         String title = request.getParameter("title-form");
         System.out.println(title);
+        String imageURL = request.getParameter("image-form");
+        System.out.println(imageURL);
 
-        ProductInCart product = new ProductInCart(title, Integer.parseInt(price), Integer.parseInt(quantity), option);
+        ProductInCart product = new ProductInCart(title, Integer.parseInt(price), Integer.parseInt(quantity), option, imageURL);
         boolean check = false;
         int cartNumber = cart.size();
         for (int i = 0; i < cartNumber; i++)
@@ -96,8 +106,7 @@ public class ProcessProduct extends HttpServlet {
         session.setAttribute("cart", cart);
 
         String id = (String) request.getParameter("product-id");
-        String productAddedMessage = "Product was added to cart.";
-
+        String productAddedMessage = "added.";
         request.setAttribute("productAddedMessage", productAddedMessage);
         Product prod = ProductDAO.getProductById(Integer.parseInt(id));
         Category productCategory = CategoryDAO.getCategoryById(prod.getCategory_id());

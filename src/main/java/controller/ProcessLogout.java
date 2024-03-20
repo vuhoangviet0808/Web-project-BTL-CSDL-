@@ -21,6 +21,7 @@ public class ProcessLogout extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
             HttpSession session = request.getSession();
             session.setAttribute("user", null);
+            session.setAttribute("cart", null);
             response.sendRedirect("./home");
     }
 

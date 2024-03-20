@@ -7,12 +7,14 @@ public class ProductInCart {
     private int price;
     private int quantity;
     private String option;
+    private String imageURL;
 
-    public ProductInCart(String title, int price, int quantity, String option) {
+    public ProductInCart(String title, int price, int quantity, String option, String imageURL) {
         this.title = title;
         this.price = price;
         this.quantity = quantity;
         this.option = option;
+        this.imageURL = imageURL;
     }
 
     public String getTitle() {
