@@ -2,6 +2,7 @@ package controller;
 
 import dao.UserDao;
 import model.User;
+import model.Admin;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -25,8 +26,15 @@ public class ProcessLogin extends HttpServlet {
         if (user != null) {
             response.sendRedirect("./home");
         } else {
-            RequestDispatcher dis = request.getRequestDispatcher("login.jsp");
-            dis.forward(request, response);
+            Admin admin = (Admin) session.getAttribute("admin");
+            if(admin != null){
+                response.sendRedirect("./admin");
+
+            }
+            else {
+                RequestDispatcher dis = request.getRequestDispatcher("login.jsp");
+                dis.forward(request, response);
+            }
         }
     }
 
@@ -34,6 +42,13 @@ public class ProcessLogin extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
+        if(username.equals("admin") && password.equals("08082004")) {
+            HttpSession session = request.getSession();
+            Admin admin = new Admin();
+            session.setAttribute("admin",admin);
+            response.sendRedirect("/lyan_war_exploded/admin");
+            return;
+        }
         User user = UserDao.handleLogin(username, password);
         if (user != null) {
             HttpSession session = request.getSession();

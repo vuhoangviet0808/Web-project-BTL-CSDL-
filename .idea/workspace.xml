@@ -37,9 +37,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Add new Servlet" />
-        <option value="Jsp File" />
-        <option value="Class" />
         <option value="servlet" />
+        <option value="Class" />
+        <option value="Jsp File" />
       </list>
     </option>
   </component>
@@ -59,6 +59,9 @@
         <option name="url" value="https://github.com/lyng148/coffee_store.git" />
       </UrlAndAccount>
     </option>
+  </component>
+  <component name="JspContextManager">
+    <jsp-to-context jsp-file="file://$PROJECT_DIR$/src/main/webapp/pageAdmin/view-products.jsp" context-file="file://$PROJECT_DIR$/src/main/webapp/admin.jsp" />
   </component>
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
@@ -133,6 +136,7 @@
   </component>
   <component name="RunManager">
     <configuration name="Tomcat 9.0.86" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.86" ALTERNATIVE_JRE_ENABLED="false">
+      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/lyan_war_exploded/admin" />
       <option name="SHOW_DIALOG_ON_UPDATE" value="false" />
       <option name="UPDATING_POLICY" value="redeploy-artifacts" />
       <deployment>
@@ -321,7 +325,10 @@
       <workItem from="1710864468947" duration="20000" />
       <workItem from="1710864708121" duration="206000" />
       <workItem from="1710864978968" duration="4589000" />
-      <workItem from="1710898891631" duration="2141000" />
+      <workItem from="1710898891631" duration="2703000" />
+      <workItem from="1711037921415" duration="2478000" />
+      <workItem from="1711156194479" duration="11480000" />
+      <workItem from="1711173670596" duration="3059000" />
     </task>
     <task id="LOCAL-00001" summary="First commit">
       <option name="closed" value="true" />
