@@ -1,8 +1,8 @@
 <%@ page import="model.Product" %>
 <%@ page import="java.util.*" %>
+<%@ page import="dao.ProductDAO" %>
 
-
-
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <h2>View Products</h2>
     <table border="1" style="text-align:center">
         <tr>
@@ -14,8 +14,8 @@
             <th>Image</th>
             <th>Category_Id</th>
         </tr>
-        <%ArrayList<Product> productList = (ArrayList<Product>) session.getAttribute("productList"); %>
-        <%for(Product product : productList) {%>
+        <%  ArrayList<Product> productList = ProductDAO.getAllProduct(null);
+            for(Product product : productList) {%>
             <tr>
                 <td><%=product.getId()%></td>
                 <td><%=product.getTitle()%></td>

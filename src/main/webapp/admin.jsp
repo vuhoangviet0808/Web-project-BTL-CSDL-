@@ -3,6 +3,7 @@
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="utils.CurrencyService" %>
 <%@ page import="java.util.Comparator" %>
+<%@ page import="dao.ProductDAO" %>
 
 
 <%--
@@ -57,7 +58,7 @@
 
 
 
-<%session.setAttribute("productList",request.getAttribute("productList"));%>
+
 <body>
 <div class="container">
     <h1>Admin Dashboard</h1>
