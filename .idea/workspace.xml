@@ -37,9 +37,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Add new Servlet" />
-        <option value="servlet" />
         <option value="Class" />
         <option value="Jsp File" />
+        <option value="servlet" />
       </list>
     </option>
   </component>
@@ -331,6 +331,8 @@
       <workItem from="1711173670596" duration="3205000" />
       <workItem from="1711177966707" duration="3000" />
       <workItem from="1711208889780" duration="3038000" />
+      <workItem from="1711218381160" duration="329000" />
+      <workItem from="1711293159492" duration="6208000" />
     </task>
     <task id="LOCAL-00001" summary="First commit">
       <option name="closed" value="true" />

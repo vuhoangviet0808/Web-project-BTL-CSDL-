@@ -57,7 +57,7 @@
 </head>
 
 
-
+<% session.setAttribute("productList",request.getAttribute("productList"));%>
 
 <body>
 <div class="container">

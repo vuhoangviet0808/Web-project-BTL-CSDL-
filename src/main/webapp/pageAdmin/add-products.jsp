@@ -1,16 +1,47 @@
-<%@ page import="model.Product" %>
+<%@ page import="model.Category" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="dao.CategoryDAO" %>
 
-<!-- Nội dung biểu mẫu -->
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<style>
+    label {
+        display: inline-block;
+        width: 150px;
+        text-align: right;
+        margin-right: 10px;
+    }
+    input {
+        width: 250px;
+    }
+</style>
+
+
 <h2>Add Product</h2>
-<form id="addProductForm">
+<form action="./addproduct" method = "POST">
     <label for="productName">Product Name:</label>
-    <input type="text" id="productName" name="productName"><br>
+    <input type="text" id="productName" name="productName" required><br>
 
     <label for="productPrice">Product Price:</label>
-    <input type="text" id="productPrice" name="productPrice"><br>
+    <input type="text" id="productPrice" name="productPrice" required><br>
 
-    <!-- Thêm các trường thông tin khác nếu cần -->
+    <label for="productDescription">Description:</label>
+    <input type="text" id="productDescription" name="productDescription" required><br>
 
+    <label for="imageProduct">Image: </label>
+    <input type="file" id="imageProduct" name="image" accept="image/*" required><br>
+    <%ArrayList<Category> categories = CategoryDAO.getCategory();%>
+    <label for="categoryProduct">Category_id: </label>
+    <select id="categoryProduct" onchange="checkOther()">
+        <%for (Category category : categories) {%>
+            <option value="<%=category.getTitle()%>"><%=category.getId()%>. <%=category.getTitle()%></option>
+        <%}%>
+        <option value="Khác">Khác</option>
+    </select>
+    <div id="other" style="display: none;">
+        <label for="otherCategory">New Category:</label>
+        <input type="text" id="otherCategory" name="otherDrinkInput">
+    </div>
+    <br>
     <input type="submit" value="Add Product">
 </form>
 
@@ -37,4 +68,14 @@
             });
         });
     });
+    function checkOther(){
+        var selectBox = document.getElementById("categoryProduct");
+        var otherInput = document.getElementById("other");
+
+        if(selectBox.value === "Khác") {
+            otherInput.style.display = "block";
+        }
+        else otherInput.style.display = "none";
+    }
+
 </script>

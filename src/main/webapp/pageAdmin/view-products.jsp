@@ -14,7 +14,7 @@
             <th>Image</th>
             <th>Category_Id</th>
         </tr>
-        <%  ArrayList<Product> productList = ProductDAO.getAllProduct(null);
+        <%   ArrayList<Product> productList = (ArrayList<Product>)session.getAttribute("productList");
             for(Product product : productList) {%>
             <tr>
                 <td><%=product.getId()%></td>

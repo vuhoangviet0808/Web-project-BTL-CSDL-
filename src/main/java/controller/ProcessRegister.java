@@ -40,7 +40,6 @@ public class ProcessRegister extends HttpServlet {
         String confirmPassword = request.getParameter("c");
         String lastName = request.getParameter("lastName");
         String firstName = request.getParameter("firstName");
-        String gender = request.getParameter("gender");
         String birthday = request.getParameter("dateOfBirth");
 
         if (password.compareTo(confirmPassword) != 0) {
@@ -52,7 +51,7 @@ public class ProcessRegister extends HttpServlet {
         }
         boolean checkUserExisted = UserDao.checkUserExisted(username);
         if (!checkUserExisted) {
-            boolean registerSuccess = UserDao.handleRegister(username, password, firstName, lastName, gender);
+            boolean registerSuccess = UserDao.handleRegister(username, password, firstName, lastName);
             if (registerSuccess) {
                 response.setContentType("text/html;charset=UTF-8");
                 RequestDispatcher dis = request.getRequestDispatcher("registerSuccess.jsp");
