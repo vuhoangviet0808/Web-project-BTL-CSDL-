@@ -18,12 +18,12 @@
 
 
 <h2>Add Product</h2>
-<form action="./addproduct" method = "POST">
+<form action="./addproduct" method = "POST" enctype="multipart/form-data">
     <label for="productName">Product Name:</label>
     <input type="text" id="productName" name="productName" required><br>
 
     <label for="productPrice">Product Price:</label>
-    <input type="text" id="productPrice" name="productPrice" required><br>
+    <input type="number" id="productPrice" name="productPrice" required><br>
 
     <label for="supplier">Supplier:</label>
     <input type="text" id="supplier" name="supplier" required><br>
@@ -32,7 +32,8 @@
     <input type="text" id="productDescription" name="productDescription" required><br>
 
     <label for="imageProduct">Image: </label>
-    <input type="file" id="imageProduct" name="image" accept="image/*" required><br>
+    <input type="file" id="imageProduct" name="fileUpload" accept="image/*" required><br>
+
     <%ArrayList<Category> categories = CategoryDAO.getCategory();%>
     <label for="categoryProduct">Category_id: </label>
     <select id="categoryProduct" name="categoryProduct" onchange="checkOther()">

@@ -68,5 +68,17 @@ public class CategoryDAO {
         return false;
     }
 
+    public static boolean addCategory(String otherCategory) {
+        try (Connection conn = openConnection()) {
+            String insert = String.format("Insert into category values(null,'%s'",otherCategory);
+            PreparedStatement ps = conn.prepareStatement(insert);
+            ps.setString(1, otherCategory);
+            int rowsAffected = ps.executeUpdate();
+            return rowsAffected > 0;
+        } catch(Exception ex) {
+            ex.printStackTrace();
+        }
+        return false;
+    }
 
 }
