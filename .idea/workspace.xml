@@ -33,6 +33,9 @@
       <option value="module" />
     </option>
   </component>
+  <component name="CodeInsightWorkspaceSettings">
+    <option name="optimizeImportsOnTheFly" value="true" />
+  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -332,7 +335,8 @@
       <workItem from="1711177966707" duration="3000" />
       <workItem from="1711208889780" duration="3038000" />
       <workItem from="1711218381160" duration="329000" />
-      <workItem from="1711293159492" duration="6208000" />
+      <workItem from="1711293159492" duration="6379000" />
+      <workItem from="1711359436851" duration="3525000" />
     </task>
     <task id="LOCAL-00001" summary="First commit">
       <option name="closed" value="true" />

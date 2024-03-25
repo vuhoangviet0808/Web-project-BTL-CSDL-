@@ -52,4 +52,21 @@ public class CategoryDAO {
         }
         return null;
     }
+
+    public static boolean checkExistedCategory(String otherCategory){
+        try (Connection conn = openConnection()) {
+            String select = String.format("Select * from category where title = '%s'",otherCategory);
+            PreparedStatement ps = conn.prepareStatement(select);
+            ResultSet rs = ps.executeQuery();
+            if(rs.next()){
+                return true;
+            }
+            return false;
+        } catch (Exception ex){
+            ex.printStackTrace();
+        }
+        return false;
+    }
+
+
 }

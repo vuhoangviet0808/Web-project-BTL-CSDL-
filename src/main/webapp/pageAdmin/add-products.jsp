@@ -2,6 +2,7 @@
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="dao.CategoryDAO" %>
 
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <style>
     label {
@@ -24,6 +25,9 @@
     <label for="productPrice">Product Price:</label>
     <input type="text" id="productPrice" name="productPrice" required><br>
 
+    <label for="supplier">Supplier:</label>
+    <input type="text" id="supplier" name="supplier" required><br>
+
     <label for="productDescription">Description:</label>
     <input type="text" id="productDescription" name="productDescription" required><br>
 
@@ -31,7 +35,7 @@
     <input type="file" id="imageProduct" name="image" accept="image/*" required><br>
     <%ArrayList<Category> categories = CategoryDAO.getCategory();%>
     <label for="categoryProduct">Category_id: </label>
-    <select id="categoryProduct" onchange="checkOther()">
+    <select id="categoryProduct" name="categoryProduct" onchange="checkOther()">
         <%for (Category category : categories) {%>
             <option value="<%=category.getTitle()%>"><%=category.getId()%>. <%=category.getTitle()%></option>
         <%}%>
@@ -39,7 +43,7 @@
     </select>
     <div id="other" style="display: none;">
         <label for="otherCategory">New Category:</label>
-        <input type="text" id="otherCategory" name="otherDrinkInput">
+        <input type="text" id="otherCategory" name="otherCategory">
     </div>
     <br>
     <input type="submit" value="Add Product">

@@ -2,9 +2,7 @@ package dao;
 
 import model.Product;
 
-import java.awt.*;
 import java.sql.*;
-import java.time.Period;
 import java.util.ArrayList;
 
 public class ProductDAO {
@@ -69,6 +67,21 @@ public class ProductDAO {
             return a != 0;
         } catch (Exception e) {
             e.printStackTrace();
+        }
+        return false;
+    }
+
+    public static boolean checkExistedProduct(String productName) {
+        try (Connection conn = openConnection()) {
+            String select = String.format("Select * from products where title = '%s'",productName);
+            PreparedStatement ps = conn.prepareStatement(select);
+            ResultSet rs = ps.executeQuery();
+            if(rs.next()){
+                return true;
+            }
+            return false;
+        } catch (Exception ex) {
+            ex.printStackTrace();
         }
         return false;
     }

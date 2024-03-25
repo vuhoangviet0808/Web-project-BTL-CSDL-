@@ -1,8 +1,13 @@
 package Admin;
 
-import javax.servlet.*;
-import javax.servlet.http.*;
-import javax.servlet.annotation.*;
+import dao.CategoryDAO;
+import dao.ProductDAO;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 
@@ -22,9 +27,23 @@ public class ProcessAddProduct extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
         String productName = request.getParameter("productName");
         String productPrice = request.getParameter("productPrice");
         String productDescription = request.getParameter("productDescription");
+        String supplier = request.getParameter("supplier");
+        String categoryProduct = request.getParameter("categoryProduct");
+        String otherCategory = request.getParameter("otherCategory");
 
+        boolean checkProductExisted = ProductDAO.checkExistedProduct(productName);
+
+        if(!checkProductExisted){
+            if(categoryProduct.equals("Khác")) {
+                boolean checkExistedCategory = CategoryDAO.checkExistedCategory(otherCategory);
+                if(!checkExistedCategory){
+
+                }
+            }
+        }
     }
 }
