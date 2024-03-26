@@ -1,6 +1,6 @@
 package controller;
 
-import dao.CategoryDAO;
+import  dao.CategoryDAO;
 import dao.ProductDAO;
 import model.Category;
 import model.Product;
@@ -69,6 +69,9 @@ public class ProcessProduct extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // gia tien, so luong san pham, thuoc tinh san pham se duoc xu ly o  Product.jsp
+        response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("UTF-8");
+        request.setCharacterEncoding("UTF-8");
         HttpSession session = request.getSession();
         ArrayList<ProductInCart> cart = new ArrayList<>();
         if (session.getAttribute("cart") != null)

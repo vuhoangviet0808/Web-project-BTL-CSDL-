@@ -36,23 +36,7 @@ public class ProcessAddProduct extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try {
-            String applicationPath = request.getServletContext().getRealPath("");
-            String uploadFilePath = applicationPath + File.separator + UPLOAD_DIRECTORY;
 
-            File fileUploadDirectory = new File(uploadFilePath);
-            if (!fileUploadDirectory.exists()) {
-                fileUploadDirectory.mkdirs();
-            }
-            Part filePart = request.getPart("fileUpload");
-            String fileName = getFileName(filePart);
-            filePart.write(uploadFilePath + File.separator + fileName);
-            //  response.getWriter().println("File " + fileName + " has been uploaded successfully!");
-        } catch (Exception ex) {
-            ex.printStackTrace();
-            response.getWriter().println("Error occurred: " + ex.getMessage());
-            response.setHeader("Refresh", "3;url=" + request.getHeader("referer"));
-        }
 
 
         String productName = request.getParameter("productName");
@@ -100,8 +84,13 @@ public class ProcessAddProduct extends HttpServlet {
                     dis.forward(request, response);
                 }
             }
+        } else {
+            request.setAttribute("message","Ten san pham da ton tai");
+
         }
     }
+
+
     private String getFileName(Part part) {
         String contentDisp = part.getHeader("content-disposition");
         String[] tokens = contentDisp.split(";");
@@ -113,4 +102,23 @@ public class ProcessAddProduct extends HttpServlet {
         return "";
     }
 
+    private boolean downfile(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        try {
+            String applicationPath = request.getServletContext().getRealPath("");
+            String uploadFilePath = applicationPath + File.separator + UPLOAD_DIRECTORY;
+
+            File fileUploadDirectory = new File(uploadFilePath);
+            if (!fileUploadDirectory.exists()) {
+                fileUploadDirectory.mkdirs();
+            }
+            Part filePart = request.getPart("fileUpload");
+            String fileName = getFileName(filePart);
+            filePart.write(uploadFilePath + File.separator + fileName);
+            //  response.getWriter().println("File " + fileName + " has been uploaded successfully!");
+            return true;
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            return false;
+        }
+    }
 }
