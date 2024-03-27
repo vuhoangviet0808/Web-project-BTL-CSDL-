@@ -53,6 +53,21 @@ public class CategoryDAO {
         return null;
     }
 
+    public static Category getIdByCategory(String category) {
+        try (Connection c = openConnection()) {
+            String select = String.format("SELECT * FROM category WHERE title = '%s'", category);
+            PreparedStatement ps = c.prepareStatement(select);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                return new Category(rs.getInt("id"), rs.getString("title"));
+            }
+            return null;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
     public static boolean checkExistedCategory(String otherCategory){
         try (Connection conn = openConnection()) {
             String select = String.format("Select * from category where title = '%s'",otherCategory);

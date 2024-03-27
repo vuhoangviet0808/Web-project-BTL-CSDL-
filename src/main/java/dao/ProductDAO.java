@@ -61,9 +61,11 @@ public class ProductDAO {
 
     public static boolean addProduct(String category, String supplier, String title, int price, int compareAtPrice, String description, String imageURL) {
         try (Connection c = openConnection()) {
-            String add = String.format("INSERT INTO products VALUE (null, '%s, '%s', '%s', '%d', '%d', '%s', '%s')", category, supplier, title, price, compareAtPrice, description, imageURL);
-            Statement s = c.createStatement();
-            int a = s.executeUpdate(add);
+            String add = String.format("INSERT INTO products VALUE (null, '%s', %d, %d, '%s', '%s', %d)", title,price,compareAtPrice,description,imageURL,CategoryDAO.getIdByCategory(category).getId());
+            int a;
+            try (Statement s = c.createStatement()) {
+                a = s.executeUpdate(add);
+            }
             return a != 0;
         } catch (Exception e) {
             e.printStackTrace();
