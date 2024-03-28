@@ -1,0 +1,13 @@
+
+- Xây dựng tính năng giỏ hàng
+
+User: - Hoàn thành tính năng đặt order:
+            - ajax xoa san pham va cap nhat lun
+      - Đổi mật khẩu
+      - (Optinal) Upload ảnh user
+      - Hoàn thành trang chủ và thêm đầy đủ đường dẫn cho navbar
+      - Thêm chi tiết cho sản phẩm
+      - Thêm footer
+      - Size: (Optional)
+
+ Admin: -

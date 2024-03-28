@@ -1,0 +1,20 @@
+USER FEATURES:
+    - User can sign up for the first time                       x
+    - User can sign in.                                         x
+    - User can view products                                    x
+    - User can add products to cart
+    - User can delete products from cart
+    - User can decrease quantity of a product in the cart.
+    - User search for products
+    - User can logout from the site.                            x
+
+
+ADMIN FEATURE:
+- admin can view products
+- admin can add product
+- admin can delete product
+- admin can edit product
+- admin can add new category
+- admin can delete category
+- admin can process order
+- admin can track profit
