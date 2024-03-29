@@ -125,7 +125,7 @@
                         <button class="btn btn-primary btn-lg btn-block" type="submit">Continue to checkout</button>
                     </form>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-6" id="your-cart">
                     <h4 class="d-flex justify-content-between align-items-center mb-3">
                         <span class="text-muted">Your cart</span>
                         <span class="badge badge-secondary badge-pill"><%= cart.size()%></span>
@@ -222,7 +222,9 @@
                     id: id,
                 },
                 success: function (data) {
-                    $("body").html(data);
+                    var content = $(data).find('#your-cart').html();
+                    console.log(content);
+                    $("#your-cart").html(content);
                 },
                 error: function (xhr) {
                     // ok
