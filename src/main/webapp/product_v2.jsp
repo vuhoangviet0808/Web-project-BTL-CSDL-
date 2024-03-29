@@ -9,6 +9,7 @@
 <html lang="en">
     <%@page contentType="text/html" pageEncoding="UTF-8" %>
     <head>
+        <script src="https://kit.fontawesome.com/628d1a6561.js" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/he@1.2.0/he.js"></script>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
         <link rel="shortcut icon" href="resources/Banner/d.png" type="image/x-icon"/>
@@ -25,7 +26,6 @@
         <title><%= prod.getTitle()%>
         </title>
         <% } %>
-
     </head>
 
     <%-- Get user information from session --%>
@@ -140,26 +140,20 @@
             right: 8.5%;
         }
 
-        .cart-icon img {
-            width: 30px; /* Tăng kích thước của biểu tượng giỏ hàng */
-            height: auto;
-        }
-
         .cart-count {
             position: absolute;
-            top: -8px; /* Dịch phần tử lên một chút */
-            right: -15px; /* Dịch phần tử sang phải một chút */
-            background-color: red;
-            color: #fff;
-            border-radius: 50%; /* Biến thành hình tròn */
-            padding: 6px; /* Tăng kích thước của phần tử */
-            font-size: 14px; /* Tăng kích thước của chữ số */
-            font-family: Arial, sans-serif; /* Sử dụng font chữ Arial */
-            min-width: 20px;
-            text-align: center;
-            width: 30px; /* Thiết lập kích thước */
-            height: 30px; /* Thiết lập kích thước */
+            top: -8px; /* Điều chỉnh vị trí theo y để số lượng được hiển thị bên trong biểu tượng */
+            right: -8px; /* Điều chỉnh vị trí theo x để số lượng được hiển thị bên trong biểu tượng */
+            background-color: #e07c51; /* Màu nền */
+            color: white; /* Màu chữ */
+            border-radius: 50%; /* Bo tròn viền */
+            width: 20px; /* Độ rộng */
+            height: 20px; /* Chiều cao */
+            text-align: center; /* Căn giữa nội dung */
+            line-height: 20px; /* Chỉnh chiều cao dòng */
+            font-size: 12px; /* Kích thước chữ */
         }
+
 
         .name {
             right: 1%;
@@ -214,22 +208,24 @@
             <% if (user == null) { %>
             <a href="login" class="UserCenter">Login</a>
             <% } else {%>
-            <div class="dropdown UserCenter">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <%= user.getLast_name() + " " + user.getFirst_name()%>
-                </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="#">Thông tin tài khoản</a>
-                    <a class="dropdown-item" href="./logout">Đăng xuất</a>
+            <div class="d-flex align-items-center">
+                <div class="dropdown UserCenter mr-3">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <%= user.getLast_name() + " " + user.getFirst_name()%>
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="#">Thông tin tài khoản</a>
+                        <a class="dropdown-item" href="./logout">Đăng xuất</a>
+                    </div>
                 </div>
+
+                <a href="./cart" class="UserCenter" style="font-size: 24px; position: relative;">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <div class="cart-count" id="cartCount">0</div>
+                </a>
             </div>
 
-            <div class="cart-icon UserCenter" id="cartIcon">
-                <a href="./cart"><img src="https://i.im.ge/2024/03/17/RN7s6K.bag.th.png" alt="Giỏ hàng"
-                                      style="width: 40px; height: auto"></a>
-                <div class="cart-count" id="cartCount">0</div>
-            </div>
 
 
             <script src="script.js"></script>
@@ -591,7 +587,7 @@
                     <input type="hidden" id="image-form" name="image-form" value="<%=prod.getImageURL()%>">
                     <input type="hidden" id="title-form" name="title-form" value="<%=prod.getTitle()%>">
                     <input type="hidden" id="price-form" name="price-form" value="">
-                    <input type="hidden" id="option-form" name="option-form" value="">
+                    <input type="hidden" id="option-form" name="option-form" value="Small">
                     <input type="hidden" id="quantity-form" name="quantity-form" value="">
                     <input type="hidden" id="product-id" name="product-id" value="<%=prod.getId()%>">
                     <input class="cart-btn" type="submit"<% if (user == null ) { %> disabled
@@ -635,7 +631,7 @@
             // Thiết lập sự kiện click cho mỗi button
             smallButton.addEventListener("click", function () {
                 updatePrice(0);
-                optionForm.value = he.decode('Small');
+                optionForm.value = 'Small';
                 if(!smallbuttonClicked){
                     smallbuttonClicked = true;
                     smallButton.classList.add("clicked");

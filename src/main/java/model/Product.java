@@ -7,7 +7,7 @@ public class Product {
     private String title, description, imageURL;
     private int price, compareAtPrice, category_id;
 
-    public Product( int id, String title, int price, int compareAtPrice, String description, String imageURL, int category_id) {
+    public Product(int id, String title, int price, int compareAtPrice, String description, String imageURL, int category_id) {
         this.id = id;
         this.title = title;
         this.description = description;
