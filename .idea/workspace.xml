@@ -11,17 +11,63 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e31f0a03-7282-4b1d-afd5-3e375b97452a" name="Changes" comment="First commit">
-      <change afterPath="$PROJECT_DIR$/FEATURES" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/controller/ProcessLogout.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/webContexts.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/webContexts.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TODO" beforeDir="false" afterPath="$PROJECT_DIR$/TODO" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/ProcessProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/ProcessProduct.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/CategoryDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/CategoryDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/ProductDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/ProductDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Product.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/home.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/home.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/login.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/product_by_category_v2.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/product_by_category_v2.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/lyan-1.0-SNAPSHOT.war" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/lyan-1.0-SNAPSHOT/Code template/ProductCard.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/lyan-1.0-SNAPSHOT/Code template/Vietnamese_enable.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/lyan-1.0-SNAPSHOT/META-INF/MANIFEST.MF" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/lyan-1.0-SNAPSHOT/WEB-INF/classes/Admin/ProcessAddProduct.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/lyan-1.0-SNAPSHOT/WEB-INF/classes/Admin/ProcessAdminDeleteProduct.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/lyan-1.0-SNAPSHOT/WEB-INF/classes/Admin/ProcessHomeAdmin.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/lyan-1.0-SNAPSHOT/WEB-INF/classes/com/example/lyan/HelloServlet.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/lyan-1.0-SNAPSHOT/WEB-INF/classes/controller/ProcessCheckout.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/lyan-1.0-SNAPSHOT/WEB-INF/classes/controller/ProcessDeleteProduct.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/lyan-1.0-SNAPSHOT/WEB-INF/classes/controller/ProcessHome.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/lyan-1.0-SNAPSHOT/WEB-INF/classes/controller/ProcessInfor.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/lyan-1.0-SNAPSHOT/WEB-INF/classes/controller/ProcessLogin.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/lyan-1.0-SNAPSHOT/WEB-INF/classes/controller/ProcessLogout.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/lyan-1.0-SNAPSHOT/WEB-INF/classes/controller/ProcessProduct.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/lyan-1.0-SNAPSHOT/WEB-INF/classes/controller/ProcessRegister.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/lyan-1.0-SNAPSHOT/WEB-INF/classes/dao/AdminDAO.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/lyan-1.0-SNAPSHOT/WEB-INF/classes/dao/CategoryDAO.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/lyan-1.0-SNAPSHOT/WEB-INF/classes/dao/DBConfig.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/lyan-1.0-SNAPSHOT/WEB-INF/classes/dao/ProductDAO.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/lyan-1.0-SNAPSHOT/WEB-INF/classes/dao/UserDao.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/lyan-1.0-SNAPSHOT/WEB-INF/classes/model/Admin.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/lyan-1.0-SNAPSHOT/WEB-INF/classes/model/Category.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/lyan-1.0-SNAPSHOT/WEB-INF/classes/model/Product.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/lyan-1.0-SNAPSHOT/WEB-INF/classes/model/ProductInCart.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/lyan-1.0-SNAPSHOT/WEB-INF/classes/model/Supplier.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/lyan-1.0-SNAPSHOT/WEB-INF/classes/model/User.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/lyan-1.0-SNAPSHOT/WEB-INF/classes/utils/CurrencyService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/lyan-1.0-SNAPSHOT/WEB-INF/web.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/lyan-1.0-SNAPSHOT/admin.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/lyan-1.0-SNAPSHOT/cart.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/lyan-1.0-SNAPSHOT/checkout.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/lyan-1.0-SNAPSHOT/hello.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/lyan-1.0-SNAPSHOT/home.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/lyan-1.0-SNAPSHOT/index.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/lyan-1.0-SNAPSHOT/infor.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/lyan-1.0-SNAPSHOT/login.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/lyan-1.0-SNAPSHOT/pageAdmin/add-products.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/lyan-1.0-SNAPSHOT/pageAdmin/view-products.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/lyan-1.0-SNAPSHOT/product_by_category_v3.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/lyan-1.0-SNAPSHOT/product_v2.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/lyan-1.0-SNAPSHOT/register.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/lyan-1.0-SNAPSHOT/registerSuccess.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/lyan-1.0-SNAPSHOT/resources/Banner/Logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/lyan-1.0-SNAPSHOT/resources/Banner/avatar_nam.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/lyan-1.0-SNAPSHOT/resources/Banner/avatar_nu.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/lyan-1.0-SNAPSHOT/resources/Banner/banner1.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/lyan-1.0-SNAPSHOT/resources/Banner/banner2.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/lyan-1.0-SNAPSHOT/resources/Banner/banner3.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/lyan-1.0-SNAPSHOT/resources/Banner/d.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/lyan-1.0-SNAPSHOT/web/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/ProcessHome.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/ProcessHome.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -105,15 +151,17 @@
     "Repository.Attach.Sources": "false",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "master",
     "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/Users/LynG/Downloads/csdl/Web-project-BTL-CSDL--main/src/main/webapp",
+    "last_opened_file_path": "C:/Users/LynG/Downloads/mysql-connector-j-8.0.32.jar",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Libraries",
+    "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
     "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
@@ -142,6 +190,17 @@
     </key>
   </component>
   <component name="RunManager">
+    <configuration default="true" type="JetRunConfigurationType">
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Tomcat 9.0.86" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.86" ALTERNATIVE_JRE_ENABLED="false">
       <option name="SHOW_DIALOG_ON_UPDATE" value="false" />
       <option name="UPDATING_POLICY" value="redeploy-artifacts" />
@@ -355,6 +414,9 @@
       <workItem from="1711717234213" duration="93000" />
       <workItem from="1711717337177" duration="474000" />
       <workItem from="1711717820017" duration="1552000" />
+      <workItem from="1711719605335" duration="82000" />
+      <workItem from="1711719696656" duration="63000" />
+      <workItem from="1711719808215" duration="18000" />
     </task>
     <task id="LOCAL-00001" summary="First commit">
       <option name="closed" value="true" />
