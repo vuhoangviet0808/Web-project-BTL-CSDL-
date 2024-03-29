@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
-      <artifact name="lyan:war" />
       <artifact name="lyan:war exploded" />
     </artifacts-to-build>
   </component>
@@ -107,7 +106,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/App/apache-tomcat-9.0.86-windows-x64-1 - Copy/apache-tomcat-9.0.86/lib/commons-io-2.15.1.jar&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/App/commons-fileupload2-2.0.0-M2/commons-io-2.15.1.jar&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -225,7 +224,6 @@
       <method v="2">
         <option name="Make" enabled="true" />
         <option name="BuildArtifacts" enabled="true">
-          <artifact name="lyan:war" />
           <artifact name="lyan:war exploded" />
         </option>
       </method>
@@ -349,9 +347,6 @@
       <workItem from="1711593341251" duration="1000" />
       <workItem from="1711640183436" duration="1358000" />
       <workItem from="1711643859068" duration="313000" />
-      <workItem from="1711648679687" duration="278000" />
-      <workItem from="1711695500070" duration="99000" />
-      <workItem from="1711695608232" duration="640000" />
     </task>
     <task id="LOCAL-00001" summary="First commit">
       <option name="closed" value="true" />
