@@ -30,12 +30,6 @@
 
     <%-- Get user information from session --%>
     <% User user = (User) session.getAttribute("user");%>
-    <% String userName = null;
-        if (user != null) { %>
-    <% userName = "Welcome " + user.getFirst_name() + user.getLast_name();%>
-    <% } else {%>
-    <% userName = "Login";
-    }%>
 
     <%-- Get type from session --%>
     <% String type = (String) request.getParameter("type");
@@ -72,24 +66,23 @@
             font-weight: 600;
         }
 
-        .UserCenter {
+        .text-highlight {
             text-decoration: none;
             color: black;
             font-size: 14px;
             line-height: 22px;
             font-weight: 600;
-            margin-right: 80px;
             position: relative;
             z-index: 3;
         }
 
-        .top-bar .UserCenter:hover {
+        .top-bar .text-highlight:hover {
             text-decoration: none;
             color: #e07c51;
             font-size: 14px;
             line-height: 22px;
             font-weight: 600;
-            margin-right: 80px;
+
             z-index: 3;
         }
 
@@ -101,11 +94,11 @@
             font-weight: 600;
             background-color: transparent !important;
             border: none !important;
-            margin-right: 45px;
+
         }
 
         .btn.dropdown-toggle:focus {
-            margin-right: 45px;
+
             color: #e07c51;
             text-decoration: none;
             font-size: 14px;
@@ -119,7 +112,7 @@
         }
 
         .btn.dropdown-toggle:hover {
-            margin-right: 45px;
+
             color: #e07c51;
             text-decoration: none;
             font-size: 14px;
@@ -132,12 +125,6 @@
 
         .dropdown-toggle::after {
             display: none !important;
-        }
-
-        .cart-icon {
-            position: relative;
-            display: inline-block;
-            right: 8.5%;
         }
 
         .cart-count {
@@ -154,10 +141,17 @@
             font-size: 12px; /* Kích thước chữ */
         }
 
-
-        .name {
-            right: 1%;
+        .user-cart-container {
+            display: flex;
+            align-items: center;
+            margin-right: 80px;
         }
+
+        .user-cart-container .text-highlight {
+            margin-right: 2px;
+        }
+
+
     </style>
 
 
@@ -202,14 +196,18 @@
 
 
     <div class="top-bar">
-        <span class="phone-icon">&#128222;</span> <!-- Biểu tượng hình điện thoại -->
+        <span class="phone-icon">&#128222;</span>
         <span class="phone-number">Order: 0936 849 516</span>
-        <a class="userCenter" style="z-index: 900">
+        <div class="user-cart-container">
             <% if (user == null) { %>
-            <a href="login" class="UserCenter">Login</a>
-            <% } else {%>
+            <a href="login" class="text-highlight">Login</a>
+            <% } else { %>
             <div class="d-flex align-items-center">
-                <div class="dropdown UserCenter mr-3">
+                <a href="./cart" class="text-highlight" style="font-size: 24px; position: relative;">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <div class="cart-count" id="cartCount">0</div>
+                </a>
+                <div class="dropdown text-highlight">
                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <%= user.getLast_name() + " " + user.getFirst_name()%>
@@ -219,44 +217,35 @@
                         <a class="dropdown-item" href="./logout">Đăng xuất</a>
                     </div>
                 </div>
-
-                <a href="./cart" class="UserCenter" style="font-size: 24px; position: relative;">
-                    <i class="fa-solid fa-cart-shopping"></i>
-                    <div class="cart-count" id="cartCount">0</div>
-                </a>
             </div>
-
-
-
-            <script src="script.js"></script>
-            <script>
-
-                // Số lượng sản phẩm trong giỏ hàng được lưu trong biến cartItemCount
-                var cartItemCount = <%= cart.size() %>; // Đổi số lượng sản phẩm ở đây
-
-                // Cập nhật số lượng sản phẩm trong biểu tượng giỏ hàng
-                function updateCartCount() {
-                    var cartCountElement = document.getElementById('cartCount');
-                    cartCountElement.textContent = cartItemCount;
-
-                    // Ẩn phần tử cart-count nếu số lượng sản phẩm là 0
-                    if (cartItemCount === 0) {
-                        cartCountElement.style.display = 'none';
-                    } else {
-                        cartCountElement.style.display = 'block'; // Hiển thị phần tử nếu số lượng sản phẩm không phải là 0
-                    }
-                }
-
-                // Cập nhật số lượng sản phẩm khi trang được tải
-                document.addEventListener('DOMContentLoaded', function () {
-                    updateCartCount();
-                });
-
-            </script>
             <% } %>
-        </a>
+        </div>
     </div>
+    <script src="script.js"></script>
+    <script>
 
+        // Số lượng sản phẩm trong giỏ hàng được lưu trong biến cartItemCount
+        var cartItemCount = <%= cart.size() %>; // Đổi số lượng sản phẩm ở đây
+
+        // Cập nhật số lượng sản phẩm trong biểu tượng giỏ hàng
+        function updateCartCount() {
+            var cartCountElement = document.getElementById('cartCount');
+            cartCountElement.textContent = cartItemCount;
+
+            // Ẩn phần tử cart-count nếu số lượng sản phẩm là 0
+            if (cartItemCount === 0) {
+                cartCountElement.style.display = 'none';
+            } else {
+                cartCountElement.style.display = 'block'; // Hiển thị phần tử nếu số lượng sản phẩm không phải là 0
+            }
+        }
+
+        // Cập nhật số lượng sản phẩm khi trang được tải
+        document.addEventListener('DOMContentLoaded', function () {
+            updateCartCount();
+        });
+
+    </script>
 
     <%-- Navbar --%>
     <style>

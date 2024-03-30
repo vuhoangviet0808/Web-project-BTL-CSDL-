@@ -3,10 +3,12 @@
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="utils.CurrencyService" %>
 <%@ page import="model.Category" %>
+<%@ page import="model.ProductInCart" %>
 <!DOCTYPE html>
 <html lang="en">
     <%@page contentType="text/html" pageEncoding="UTF-8" %>
     <head>
+        <script src="https://kit.fontawesome.com/628d1a6561.js" crossorigin="anonymous"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
         <link rel="shortcut icon" href="resources/Banner/d.png" type="image/x-icon"/>
@@ -17,7 +19,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Linh Coffee - For The Good Teacher</title>
     </head>
-
+    <%  ArrayList<ProductInCart> cart = new ArrayList<>();
+        if (session.getAttribute("cart") != null) {
+            cart = (ArrayList<ProductInCart>) session.getAttribute("cart");
+        }
+    %>
     <style>
         .top-bar {
             display: flex;
@@ -43,24 +49,23 @@
             font-weight: 600;
         }
 
-        .UserCenter {
+        .text-highlight {
             text-decoration: none;
             color: black;
             font-size: 14px;
             line-height: 22px;
             font-weight: 600;
-            margin-right: 80px;
             position: relative;
             z-index: 3;
         }
 
-        .top-bar .UserCenter:hover {
+        .top-bar .text-highlight:hover {
             text-decoration: none;
             color: #e07c51;
             font-size: 14px;
             line-height: 22px;
             font-weight: 600;
-            margin-right: 80px;
+
             z-index: 3;
         }
 
@@ -72,11 +77,11 @@
             font-weight: 600;
             background-color: transparent !important;
             border: none !important;
-            margin-right: 45px;
+
         }
 
         .btn.dropdown-toggle:focus {
-            margin-right: 45px;
+
             color: #e07c51;
             text-decoration: none;
             font-size: 14px;
@@ -84,12 +89,13 @@
             font-weight: 600;
             background-color: transparent !important;
             border: none !important;
-            outline: none; !important;
+            outline: none;
+        !important;
             box-shadow: none !important;
         }
 
         .btn.dropdown-toggle:hover {
-            margin-right: 45px;
+
             color: #e07c51;
             text-decoration: none;
             font-size: 14px;
@@ -102,6 +108,30 @@
 
         .dropdown-toggle::after {
             display: none !important;
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -8px; /* Điều chỉnh vị trí theo y để số lượng được hiển thị bên trong biểu tượng */
+            right: -8px; /* Điều chỉnh vị trí theo x để số lượng được hiển thị bên trong biểu tượng */
+            background-color: #e07c51; /* Màu nền */
+            color: white; /* Màu chữ */
+            border-radius: 50%; /* Bo tròn viền */
+            width: 20px; /* Độ rộng */
+            height: 20px; /* Chiều cao */
+            text-align: center; /* Căn giữa nội dung */
+            line-height: 20px; /* Chỉnh chiều cao dòng */
+            font-size: 12px; /* Kích thước chữ */
+        }
+
+        .user-cart-container {
+            display: flex;
+            align-items: center;
+            margin-right: 80px;
+        }
+
+        .user-cart-container .text-highlight {
+            margin-right: 2px;
         }
 
         .navbar {
@@ -267,32 +297,33 @@
 
     <%-- Get user information from session --%>
     <% User user = (User) session.getAttribute("user");%>
-    <% String userName = null;
-        if (user != null) { %>
-    <% userName = "Welcome " + user.getFirst_name() + user.getLast_name();%>
-    <% } else {%>
-    <% userName = "Login";
-    }%>
 
     <body>
         <div class="top-bar">
-            <span class="phone-icon">&#128222;</span> <!-- Biểu tượng hình điện thoại -->
+            <span class="phone-icon">&#128222;</span>
             <span class="phone-number">Order: 0936 849 516</span>
-            <a class="userCenter" style="z-index: 900">
+            <div class="user-cart-container">
                 <% if (user == null) { %>
-                <a href="login" class="UserCenter">Login</a>
-                <% } else {%>
-                <div class="dropdown UserCenter">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <%= user.getLast_name() + " " + user.getFirst_name()%>
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="#">Thông tin tài khoản</a>
-                        <a class="dropdown-item" href="./logout">Đăng xuất</a>
+                <a href="login" class="text-highlight">Login</a>
+                <% } else { %>
+                <div class="d-flex align-items-center">
+                    <a href="./cart" class="text-highlight" style="font-size: 24px; position: relative;">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                        <div class="cart-count" id="cartCount"><%=cart.size()%></div>
+                    </a>
+                    <div class="dropdown text-highlight">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <%= user.getLast_name() + " " + user.getFirst_name()%>
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="#">Thông tin tài khoản</a>
+                            <a class="dropdown-item" href="./logout">Đăng xuất</a>
+                        </div>
                     </div>
                 </div>
                 <% } %>
-            </a>
+            </div>
         </div>
 
 
