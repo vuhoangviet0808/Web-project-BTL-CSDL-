@@ -30,7 +30,7 @@
                 <td><%=product.getDescription()%></td>
                 <td><img class="card-img-top"
                          src="<%= product.getImageURL() %>"
-                         alt="Card image cap" width="50px" height="50px"></td>
+                         alt="Card image cap" width="10px" height="100px"></td>
                 <td><%=product.getCategory_id()%></td>
                 <td>
                     <button onclick="deleteProduct('<%=product.getId()%>')">-</button>
@@ -39,10 +39,10 @@
         <%}%>
         <tr id="addProductRow">
             <td></td>
-            <td><input type="text" id="newProductName" size="15"></td>
-            <td><input type="number" id="newProductPrice" size="5"></td>
-            <td><input type="number" id="newProductComparePrice" size="5"></td>
-            <td><input type="text" id="newProductDescription" size="15"></td>
+            <td><input type="text" id="newProductName" ></td>
+            <td><input type="number" id="newProductPrice" ></td>
+            <td><input type="number" id="newProductComparePrice"></td>
+            <td><input type="text" id="newProductDescription"></td>
             <td><input type="file" id="newProductImage" accept="image/*"></td>
             <td><%ArrayList<Category> categories = CategoryDAO.getCategory();%>
                 <select id="newProductCategory" onchange="checkOther()">

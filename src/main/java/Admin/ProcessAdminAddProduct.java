@@ -63,22 +63,22 @@ public class ProcessAdminAddProduct extends HttpServlet {
                                 response.setHeader("Refresh", "3;url=" + request.getHeader("referer"));
                             } else {
                                 request.setAttribute("message", "Add Product failed. Unknown error happened.");
-                                RequestDispatcher dis = request.getRequestDispatcher("admin.jsp");
+                                RequestDispatcher dis = request.getRequestDispatcher("admin_v2.jsp");
                                 dis.forward(request, response);
                             }
                         } else {
                             request.setAttribute("message", "File upload failed.");
-                            RequestDispatcher dis = request.getRequestDispatcher("admin.jsp");
+                            RequestDispatcher dis = request.getRequestDispatcher("admin_v2.jsp");
                             dis.forward(request, response);
                         }
                     } else {
                         request.setAttribute("message", "Add Category failed. Unknown error happened.");
-                        RequestDispatcher dis = request.getRequestDispatcher("admin.jsp");
+                        RequestDispatcher dis = request.getRequestDispatcher("admin_v2.jsp");
                         dis.forward(request, response);
                     }
                 } else {
                     request.setAttribute("message", "Category Already Exist");
-                    RequestDispatcher dis = request.getRequestDispatcher("admin.jsp");
+                    RequestDispatcher dis = request.getRequestDispatcher("admin_v2.jsp");
                     dis.forward(request, response);
                 }
             } else {
@@ -89,18 +89,18 @@ public class ProcessAdminAddProduct extends HttpServlet {
                         response.setHeader("Refresh", "3;url=" + request.getHeader("referer"));
                     } else {
                         request.setAttribute("message", "Add Product failed. Unknown error happened.");
-                        RequestDispatcher dis = request.getRequestDispatcher("admin.jsp");
+                        RequestDispatcher dis = request.getRequestDispatcher("admin_v2.jsp");
                         dis.forward(request, response);
                     }
                 } else {
                     request.setAttribute("message", "File upload failed.");
-                    RequestDispatcher dis = request.getRequestDispatcher("admin.jsp");
+                    RequestDispatcher dis = request.getRequestDispatcher("admin_v2.jsp");
                     dis.forward(request, response);
                 }
             }
         } else {
             request.setAttribute("message", "Tên sản phẩm đã tồn tại");
-            RequestDispatcher dis = request.getRequestDispatcher("admin.jsp");
+            RequestDispatcher dis = request.getRequestDispatcher("admin_v2.jsp");
             dis.forward(request, response);
         }
     }

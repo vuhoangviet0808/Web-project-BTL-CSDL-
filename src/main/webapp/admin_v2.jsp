@@ -151,7 +151,7 @@
             <div class="sidebar-sticky">
                 <ul class="nav flex-column">
                     <li class="nav-item">
-                        <a class="nav-link active" href="#" onclick="loadContent('dashboard.html')">
+                        <a class="nav-link active" href="#" onclick="loadDashBoard()">
                             <span data-feather="home"></span>
                             Dashboard <span class="sr-only">(current)</span>
                         </a>
@@ -223,7 +223,8 @@
             </div>
         </nav>
 
-        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4" id="content">
+            <h1>Hello Admin</h1>
 <%--            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">--%>
 <%--                <h1 class="h2">Dashboard</h1>--%>
 <%--                <div class="btn-toolbar mb-2 mb-md-0">--%>
@@ -237,13 +238,11 @@
 <%--                    </button>--%>
 <%--                </div>--%>
 <%--            </div>--%>
-            <div id="content">
-
-            </div>
 
 
 <%--            <canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas>--%>
         </main>
+
     </div>
 </div>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
@@ -263,21 +262,16 @@
 
 
 <script>
-    function loadContent(url) {
-        $.ajax({
-            url: url,
-            dataType: 'html',
-            success: function(response) {
-                $('#content').html(response);
-            },
-            error: function() {
-                $('#content').html('<p>Không thể tải nội dung.</p>');
-            }
-        });
-    }
-
     function loadViewProducts() {
         fetch("pageAdmin/view-products.jsp")
+            .then(response => response.text())
+            .then(data => {
+                document.querySelector("#content").innerHTML = data;
+            })
+            .catch(error => console.error('Error:', error));
+    }
+    function loadDashBoard() {
+        fetch("pageAdmin/dash-board.jsp")
             .then(response => response.text())
             .then(data => {
                 document.querySelector("#content").innerHTML = data;
