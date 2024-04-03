@@ -7,7 +7,7 @@
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Jekyll v3.8.5">
     <title>Dashboard Template · Bootstrap</title>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <link rel="canonical" href="https://getbootstrap.com/docs/4.2/examples/dashboard/">
 
     <!-- Bootstrap core CSS -->
@@ -145,6 +145,7 @@
     </ul>
 </nav>
 
+
 <div class="container-fluid">
     <div class="row">
         <nav class="col-md-2 d-none d-md-block bg-light sidebar">
@@ -157,7 +158,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#" onclick="loadContent('orders.html')">
+                        <a class="nav-link" href="#" onclick="loadOrders()">
                             <span data-feather="file"></span>
                             Orders
                         </a>
@@ -225,35 +226,27 @@
 
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4" id="content">
             <h1>Hello Admin</h1>
-<%--            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">--%>
-<%--                <h1 class="h2">Dashboard</h1>--%>
-<%--                <div class="btn-toolbar mb-2 mb-md-0">--%>
-<%--                    <div class="btn-group mr-2">--%>
-<%--                        <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>--%>
-<%--                        <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>--%>
-<%--                    </div>--%>
-<%--                    <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">--%>
-<%--                        <span data-feather="calendar"></span>--%>
-<%--                        This week--%>
-<%--                    </button>--%>
-<%--                </div>--%>
-<%--            </div>--%>
-
-
-<%--            <canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas>--%>
         </main>
 
     </div>
 </div>
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
+<%--<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"--%>
+<%--        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"--%>
+<%--        crossorigin="anonymous"></script>--%>
+<%--<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"--%>
+<%--        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"--%>
+<%--        crossorigin="anonymous"></script>--%>
+<%--<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"--%>
+<%--        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"--%>
+<%--        crossorigin="anonymous"></script>--%>
+
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
         integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
         crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
+
 
 <script>window.jQuery || document.write('<script src="file_js/jquery-slim.min.js"><\/script>')</script><script src="file_js/bootstrap.bundle.min.js" integrity="sha384-zDnhMsjVZfS3hiP7oCBRmfjkQC4fzxVxFhBx8Hkz2aZX8gEvA/jsP3eXRCvzTofP" crossorigin="anonymous"></script>
 <script src="file_js/feather.min.js"></script>
@@ -262,21 +255,69 @@
 
 
 <script>
+    // function loadViewProducts() {
+    //     fetch("pageAdmin/view-products.jsp")
+    //         .then(response => response.text())
+    //         .then(data => {
+    //             document.querySelector("#content").innerHTML = data;
+    //         })
+    //         .catch(error => console.error('Error:', error));
+    // }
+    // function loadDashBoard() {
+    //     fetch("pageAdmin/dash-board.jsp")
+    //         .then(response => response.text())
+    //         .then(data => {
+    //             document.querySelector("#content").innerHTML = data;
+    //         })
+    //         .catch(error => console.error('Error:', error));
+    // }
+    //
+    // function loadOrders() {
+    //     fetch("pageAdmin/orders.jsp")
+    //         .then(response => response.text())
+    //         .then(data => {
+    //             document.querySelector("#content").innerHTML = data;
+    //         })
+    //         .catch(error => console.error('Error:',error));
+    // }
+
     function loadViewProducts() {
-        fetch("pageAdmin/view-products.jsp")
-            .then(response => response.text())
-            .then(data => {
-                document.querySelector("#content").innerHTML = data;
-            })
-            .catch(error => console.error('Error:', error));
+        $.ajax({
+            url: "./view-product",
+            type: "GET",
+            success: function(data) {
+                $("#content").html(data);
+            },
+            error: function(xhr, status, error) {
+                console.error('Error:', error);
+            }
+        });
     }
+
     function loadDashBoard() {
-        fetch("pageAdmin/dash-board.jsp")
-            .then(response => response.text())
-            .then(data => {
-                document.querySelector("#content").innerHTML = data;
-            })
-            .catch(error => console.error('Error:', error));
+        $.ajax({
+            url: "pageAdmin/dash-board.jsp",
+            type: "GET",
+            success: function(data) {
+                $("#content").html(data);
+            },
+            error: function(xhr, status, error) {
+                console.error('Error:', error);
+            }
+        });
+    }
+
+    function loadOrders() {
+        $.ajax({
+            url: "pageAdmin/orders.jsp",
+            type: "GET",
+            success: function(data) {
+                $("#content").html(data);
+            },
+            error: function(xhr, status, error) {
+                console.error('Error:', error);
+            }
+        });
     }
 
 </script>

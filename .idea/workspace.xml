@@ -41,9 +41,9 @@
       <list>
         <option value="Add new Servlet" />
         <option value="Class" />
-        <option value="servlet" />
         <option value="JavaScript File" />
         <option value="Jsp File" />
+        <option value="servlet" />
       </list>
     </option>
   </component>
@@ -63,9 +63,6 @@
         <option name="url" value="https://github.com/lyng148/coffee_store.git" />
       </UrlAndAccount>
     </option>
-  </component>
-  <component name="JspContextManager">
-    <jsp-to-context jsp-file="file://$PROJECT_DIR$/src/main/webapp/pageAdmin/view-products.jsp" context-file="file://$PROJECT_DIR$/src/main/webapp/admin.jsp" />
   </component>
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
@@ -107,7 +104,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Web-project-BTL-CSDL-&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/CSDL/Web-project-BTL-CSDL--nb&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -135,6 +132,7 @@
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\CSDL\Web-project-BTL-CSDL--nb\src\main\webapp" />
+      <recent name="D:\CSDL\Web-project-BTL-CSDL--nb\src\main" />
       <recent name="C:\Users\LynG\IdeaProjects\lyan\src\main\webapp\resources\Banner" />
       <recent name="C:\Users\LynG\IdeaProjects\lyan\src\main\webapp" />
     </key>
@@ -433,7 +431,16 @@
       <workItem from="1711816448211" duration="338000" />
       <workItem from="1711891579728" duration="8222000" />
       <workItem from="1711979520915" duration="600000" />
-      <workItem from="1711983253650" duration="2637000" />
+      <workItem from="1711983253650" duration="8446000" />
+      <workItem from="1712028312862" duration="341000" />
+      <workItem from="1712028664439" duration="133000" />
+      <workItem from="1712029411881" duration="138000" />
+      <workItem from="1712033478009" duration="773000" />
+      <workItem from="1712035258770" duration="1411000" />
+      <workItem from="1712036721991" duration="1039000" />
+      <workItem from="1712072287958" duration="5387000" />
+      <workItem from="1712108695518" duration="3313000" />
+      <workItem from="1712136101433" duration="2479000" />
     </task>
     <task id="LOCAL-00001" summary="First commit">
       <option name="closed" value="true" />

@@ -102,4 +102,37 @@ public class ProductDAO {
         }
         return false;
     }
+
+    public static int getTotalProduct() {
+        try (Connection c = openConnection()) {
+            String query = "Select COUNT(*) from products";
+            PreparedStatement ps = c.prepareStatement(query);
+            ResultSet rs = ps.executeQuery();
+            if(rs.next()){
+                return rs.getInt(1);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
+
+    public static ArrayList<Product> getPerPageProduct(int index,int pageSize) {
+        try (Connection c = openConnection()) {
+            String query = String.format("SELECT * FROM products\n" +
+                    "ORDER BY id\n" +
+                    "LIMIT %d OFFSET %d;",pageSize,(index - 1)*pageSize);
+            ArrayList<Product> res = new ArrayList<>();
+            PreparedStatement ps = c.prepareStatement(query);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+                Product prodToAdd = new Product(rs.getInt("id"), rs.getString("title"), rs.getInt("price"), rs.getInt("compare_at_price"), rs.getString("description"), rs.getString("image_url"), rs.getInt("category_id"));
+                res.add(prodToAdd);
+            }
+            return res;
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 }
