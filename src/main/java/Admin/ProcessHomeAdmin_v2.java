@@ -6,7 +6,7 @@ import javax.servlet.annotation.*;
 import java.io.IOException;
 
 
-@WebServlet(name = "ProcessHomeAdmin_v2", value = "/admin_v2")
+@WebServlet(name = "ProcessHomeAdmin_v2", value = "/admin")
 public class ProcessHomeAdmin_v2 extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)

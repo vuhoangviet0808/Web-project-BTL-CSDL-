@@ -6,27 +6,24 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Jekyll v3.8.5">
-    <title>Dashboard Template · Bootstrap</title>
+    <title>Admin Page</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <link rel="canonical" href="https://getbootstrap.com/docs/4.2/examples/dashboard/">
 
-    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
           crossorigin="anonymous">
-
-
+    <link rel="stylesheet" href="file_js/adminPage.css">
     <style>
-
-
-
-
-        body {
-            font-size: .875rem;
-        }
-
         .feather {
             width: 16px;
             height: 16px;
@@ -152,37 +149,37 @@
             <div class="sidebar-sticky">
                 <ul class="nav flex-column">
                     <li class="nav-item">
-                        <a class="nav-link active" href="#" onclick="loadDashBoard()">
+                        <a class="nav-link" href="#" id = 'dash-board'  onclick="loadDashBoard()">
                             <span data-feather="home"></span>
                             Dashboard <span class="sr-only">(current)</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#" onclick="loadOrders()">
+                        <a class="nav-link" href="#" id = 'orders' onclick="loadOrders()">
                             <span data-feather="file"></span>
                             Orders
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#" onclick="loadViewProducts()">
+                        <a class="nav-link" href="#" id="products" onclick="loadViewProducts()">
                             <span data-feather="shopping-cart"></span>
                             Products
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#" onclick="loadContent('customers.html')">
+                        <a class="nav-link" href="#" id="customers" onclick="loadContent('customers.html')">
                             <span data-feather="users"></span>
                             Customers
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#" onclick="loadContent('reports.html')">
+                        <a class="nav-link" href="#" id="reports" onclick="loadContent('reports.html')">
                             <span data-feather="bar-chart-2"></span>
                             Reports
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#" onclick="loadContent('integrations.html')">
+                        <a class="nav-link" href="#" id="integrations" onclick="loadContent('integrations.html')">
                             <span data-feather="layers"></span>
                             Integrations
                         </a>
@@ -230,15 +227,7 @@
 
     </div>
 </div>
-<%--<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"--%>
-<%--        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"--%>
-<%--        crossorigin="anonymous"></script>--%>
-<%--<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"--%>
-<%--        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"--%>
-<%--        crossorigin="anonymous"></script>--%>
-<%--<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"--%>
-<%--        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"--%>
-<%--        crossorigin="anonymous"></script>--%>
+
 
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
         integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
@@ -248,40 +237,20 @@
         crossorigin="anonymous"></script>
 
 
-<script>window.jQuery || document.write('<script src="file_js/jquery-slim.min.js"><\/script>')</script><script src="file_js/bootstrap.bundle.min.js" integrity="sha384-zDnhMsjVZfS3hiP7oCBRmfjkQC4fzxVxFhBx8Hkz2aZX8gEvA/jsP3eXRCvzTofP" crossorigin="anonymous"></script>
-<script src="file_js/feather.min.js"></script>
-<script src="file_js/Chart.min.js"></script>
-<script src="file_js/dashboard.js"></script>
+<script>window.jQuery || document.write('<script src="file_js/jquery-slim.min.js"><\/script>')</script><script src="/docs/4.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-zDnhMsjVZfS3hiP7oCBRmfjkQC4fzxVxFhBx8Hkz2aZX8gEvA/jsP3eXRCvzTofP" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/feather-icons@4.9.0/dist/feather.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.7.3/dist/Chart.min.js"></script>
+<script src="file_js/dashboard.js"></script></body>
 
 
 <script>
-    // function loadViewProducts() {
-    //     fetch("pageAdmin/view-products.jsp")
-    //         .then(response => response.text())
-    //         .then(data => {
-    //             document.querySelector("#content").innerHTML = data;
-    //         })
-    //         .catch(error => console.error('Error:', error));
-    // }
-    // function loadDashBoard() {
-    //     fetch("pageAdmin/dash-board.jsp")
-    //         .then(response => response.text())
-    //         .then(data => {
-    //             document.querySelector("#content").innerHTML = data;
-    //         })
-    //         .catch(error => console.error('Error:', error));
-    // }
-    //
-    // function loadOrders() {
-    //     fetch("pageAdmin/orders.jsp")
-    //         .then(response => response.text())
-    //         .then(data => {
-    //             document.querySelector("#content").innerHTML = data;
-    //         })
-    //         .catch(error => console.error('Error:',error));
-    // }
-
+    var selectedValue = null;
     function loadViewProducts() {
+        if(selectedValue){
+            document.getElementById(selectedValue).classList.remove('active');
+        }
+        selectedValue = 'products';
+        document.getElementById(selectedValue).classList.add('active');
         $.ajax({
             url: "./view-product",
             type: "GET",
@@ -295,6 +264,11 @@
     }
 
     function loadDashBoard() {
+        if(selectedValue){
+            document.getElementById(selectedValue).classList.remove('active');
+        }
+        selectedValue = 'dash-board';
+        document.getElementById(selectedValue).classList.add('active');
         $.ajax({
             url: "pageAdmin/dash-board.jsp",
             type: "GET",
@@ -308,8 +282,13 @@
     }
 
     function loadOrders() {
+        if(selectedValue){
+            document.getElementById(selectedValue).classList.remove('active');
+        }
+        selectedValue = 'orders';
+        document.getElementById(selectedValue).classList.add('active');
         $.ajax({
-            url: "pageAdmin/orders.jsp",
+            url: "./admin-orders",
             type: "GET",
             success: function(data) {
                 $("#content").html(data);

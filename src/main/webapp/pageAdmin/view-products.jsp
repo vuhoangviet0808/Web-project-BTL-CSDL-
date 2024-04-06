@@ -19,26 +19,11 @@
         <title>Dashboard Template · Bootstrap</title>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
         <link rel="canonical" href="https://getbootstrap.com/docs/4.2/examples/dashboard/">
-
-        <!-- Bootstrap core CSS -->
-
-
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
               integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
               crossorigin="anonymous">
-
-        <style>
-            table th {
-                background-color: #ff9800;
-                color: #fff;
-                font-weight: bold;
-                padding: 10px;
-                text-transform: uppercase;
-                letter-spacing: 1px;
-                border-top: 1px solid #fff;
-                border-bottom: 1px solid #ccc;
-            }
-        </style>
+        <link rel="stylesheet" href="file_js/adminPage.css">
     </head>
     <body>
     <div id="table">
@@ -57,7 +42,6 @@
             </tr>
                 <div id="product-list">
                 <%  int current_page = (request.getParameter("page") != null) ? (Integer.parseInt(request.getParameter("page"))) : 1;
-                    System.out.println(current_page);
                     int pageSize = 4;
                     int totalProducts = ProductDAO.getTotalProduct();
                     ArrayList<Product> productList = ProductDAO.getPerPageProduct(current_page,pageSize);

@@ -4,6 +4,24 @@ public class Order {
     private int id, userId, totalMoney;
     private String firstName, lastName, email, phoneNumber, address, orderDate, status, note, shippingMethod, paymentMethod;
 
+
+
+    public Order(int id, int userId, String firstName, String lastName, String email, String phoneNumber, String address, String orderDate, String status, String note, int totalMoney,String shippingMethod, String paymentMethod) {
+        this.id = id;
+        this.userId = userId;
+        this.totalMoney = totalMoney;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.phoneNumber = phoneNumber;
+        this.address = address;
+        this.orderDate = orderDate;
+        this.status = status;
+        this.note = note;
+        this.shippingMethod = shippingMethod;
+        this.paymentMethod = paymentMethod;
+    }
+
     public int getId() {
         return id;
     }
