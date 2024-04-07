@@ -150,33 +150,33 @@
 </body>
 
 <script>
-    let currentPage = 1;
-    let valueSelected = 25;
-    let pageSize = <%=pageSize%>;
-
     $(document).ready(function(){
-        hideExtraRows();
+        $('[data-toggle="tooltip"]').tooltip();
     });
 
     function hideExtraRows() {
         const defaultRowCount = <%=pageSize%>;
-
         $('#orderTable tbody tr').slice(defaultRowCount).hide();
     }
 
     function showChange() {
         const selectedValue = document.getElementById("show-change").value;
+        let valueSelected;
+        let pageSize;
         if(selectedValue === 'All') {
             valueSelected = 25;
+            pageSize = 25;
             $('table tr').slice(1).show();
         }
         else {
             valueSelected = selectedValue;
+            pageSize = parseInt(selectedValue);
             $('.table tr').slice(1).hide();
-            $('.table tr').slice(1, parseInt(selectedValue) + 1).show();
+            $('.table tr').slice(1, pageSize + 1).show();
         }
         document.getElementById('valueSelected').innerHTML = valueSelected;
     }
+
     function statusChange() {
         const statusSelected = document.getElementById("status").value;
         if(statusSelected === 'Any'){
@@ -185,9 +185,9 @@
         else {
             $('.table tr').slice(1).hide();
             $('.table tr').each(function() {
-               if($(this).find('td:nth-child(5)').text().includes(statusSelected.toLowerCase())){
-                   $(this).show();
-               }
+                if($(this).find('td:nth-child(5)').text().includes(statusSelected.toLowerCase())){
+                    $(this).show();
+                }
             });
         }
     }
@@ -214,7 +214,7 @@
 
     function Refresh(){
         const options = document.getElementById("show-change").options;
-        valueSelected = 25;
+        let valueSelected = 25;
         document.getElementById('valueSelected').innerHTML = valueSelected;
         for(let i=0; i<options.length; i++){
             options[i].selected = options[i].value === "25";
@@ -228,37 +228,47 @@
 
     function goToPage(pageNum){
         const li = document.querySelectorAll("#pagination li");
-        li[currentPage].classList.remove("active");
+        for (let i = 0; i < li.length; i++) {
+            if (li[i].classList.contains('active')) {
+                li[i].classList.remove("active");
+                break;
+            }
+        }
         li[pageNum].classList.add("active");
-        currentPage = pageNum;
-        updateTable();
+        updateProductTable(pageNum);
     }
 
     function updateTable(){
-        const startIndex = (currentPage - 1) * pageSize;
-        const endIndex = Math.min(startIndex + pageSize, <%=totalOrder%>);
+        let current_page = 1;
+        const startIndex = (current_page - 1) * page_size;
+        const endIndex = Math.min(startIndex + page_size, <%=totalOrder%>);
 
         $('.table tr').slice(1).hide();
 
         $('.table tr').slice(startIndex+1,endIndex + 1).show();
     }
 
-
-
     function navigatePage(direction) {
-        if(direction === "prev") {
-            if(currentPage > 1) {
-                currentPage--;
-                updateTable();
+        const li = document.querySelectorAll("#pagination li");
+        let currentPageNumber = 1;
+        for (let i = 0; i < li.length; i++) {
+            if (li[i].classList.contains('active')) {
+                currentPageNumber = i;
+                break;
             }
-        } else if (direction === 'next') {
-            if(currentPage < <%=totalPage%>) {
-                currentPage++;
-                updateTable();
-            }
+        }
+        if (direction === "prev" && currentPageNumber > 1) {
+            goToPage(currentPageNumber - 1);
+        } else if (direction === 'next' && currentPageNumber < li.length - 2) {
+            goToPage(currentPageNumber + 1);
+        } else if (direction === "prev" && currentPageNumber === 1) {
+            goToPage(1);
+        } else if (direction === "next" && currentPageNumber === li.length - 2) {
+            goToPage(li.length - 2);
         }
     }
 </script>
+
 </html>
 
 

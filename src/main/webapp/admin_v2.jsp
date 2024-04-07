@@ -242,11 +242,12 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.7.3/dist/Chart.min.js"></script>
 <script src="file_js/dashboard.js"></script></body>
 
+<div id="script-container"></div>
 
 <script>
     var selectedValue = null;
     function loadViewProducts() {
-        if(selectedValue){
+        if (selectedValue) {
             document.getElementById(selectedValue).classList.remove('active');
         }
         selectedValue = 'products';
@@ -256,6 +257,8 @@
             type: "GET",
             success: function(data) {
                 $("#content").html(data);
+                $('#script-container').empty();
+                $('#script-container').html($(data).filter('script'));
             },
             error: function(xhr, status, error) {
                 console.error('Error:', error);
@@ -274,6 +277,8 @@
             type: "GET",
             success: function(data) {
                 $("#content").html(data);
+                $('#script-container').empty();
+                $('#script-container').html($(data).filter('script'));
             },
             error: function(xhr, status, error) {
                 console.error('Error:', error);
@@ -292,6 +297,8 @@
             type: "GET",
             success: function(data) {
                 $("#content").html(data);
+                $('#script-container').empty();
+                $('#script-container').html($(data).filter('script'));
             },
             error: function(xhr, status, error) {
                 console.error('Error:', error);
