@@ -1,8 +1,7 @@
 <%@ page import="model.Product" %>
 <%@ page import="java.util.*" %>
 <%@ page import="dao.ProductDAO" %>
-<%@ page import="model.Category" %>
-<%@ page import="dao.CategoryDAO" %>
+
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
@@ -29,7 +28,7 @@
     <div id="table">
     <h2>View Products</h2>
 
-        <table border="1"  style="text-align:center">
+        <table border="1"  style="text-align:center" id="productTable">
             <tr>
                 <th>ID</th>
                 <th>Name</th>
@@ -41,10 +40,10 @@
                 <th>Action</th>
             </tr>
                 <div id="product-list">
-                <%  int current_page = (request.getParameter("page") != null) ? (Integer.parseInt(request.getParameter("page"))) : 1;
-                    int pageSize = 4;
-                    int totalProducts = ProductDAO.getTotalProduct();
-                    ArrayList<Product> productList = ProductDAO.getPerPageProduct(current_page,pageSize);
+                <tbody>
+                <%int pageSize = 4;
+                    ArrayList<Product> productList = ProductDAO.getAllProduct(null);
+                    int totalProducts = productList.size();
                     for(Product product : productList) {%>
                     <tr id="productRow_<%=product.getId()%>">
                         <td><%=product.getId()%></td>
@@ -81,21 +80,35 @@
 <%--                        <button onclick="addProduct()">+</button>--%>
 <%--                    </td>--%>
 <%--                </tr>--%>
+                </tbody>
             </div>
 
         </table>
-            <%
-                int totalPages = (int) Math.ceil((double) totalProducts / pageSize);
-                for (int pageNum = 1; pageNum <= totalPages; pageNum++) {
-            %>
-            <button><a href="#" class="pagination-link" data-page="<%=pageNum%>"><%=pageNum%></a></button>
-            <%
-                }
-            %>
+        <div class="clearfix">
+            <ul class="pagination" id="pagination">
+                <li class="page-item disabled"><a href="#" onclick="navigatePage('prev')">Previous</a></li>
+                <%int totalPage = (int)Math.ceil((double) totalProducts / pageSize);
+                    for(int pageNum = 1;pageNum <= totalPage;pageNum++) {%>
+                <li class="page-item <%= pageNum == 1 ? "active" : "" %>"><a href="#" class="page-link" onclick="goToPage(<%=pageNum%>)"><%=pageNum%></a></li>
+                <%}%>
+                <li class="page-item"><a href="#" class="page-link" onclick="navigatePage('next')">Next</a></li>
+            </ul>
+        </div>
         </div>
     </body>
 </html>
 <script>
+    $(document).ready(function(){
+        hideExtraRows();
+    });
+
+    function hideExtraRows() {
+        const defaultRowCount = <%=pageSize%> + 1;
+
+        $('#productTable tbody tr').slice(defaultRowCount).hide();
+    }
+
+
     function deleteProduct(productId){
         if(confirm("Xác nhận xóa sản phẩm ?")) {
             $.ajax ({
@@ -159,23 +172,43 @@
         }
     }
 
-    function loadProducts(page) {
-        $.ajax({
-            type: "GET",
-            url: "./view-product?page=" + page,
-            success: function(data) {
-                $("#table").html(data);
-            },
-            error: function() {
-                alert("Error loading products.");
-            }
-        });
+
+    let currentPage = 1;
+    let pageSize = <%=pageSize%>;
+
+    function goToPage(pageNum){
+        const li = document.querySelectorAll("#pagination li");
+        li[currentPage].classList.remove("active");
+        li[pageNum].classList.add("active");
+        currentPage = pageNum;
+        updateTable();
     }
 
-    $(document).on("click", ".pagination-link", function(e) {
-        e.preventDefault();
-        var page = $(this).attr("data-page");
-        loadProducts(page);
-    });
+    function updateTable() {
+        const startIndex = (currentPage - 1) * pageSize+1;
+        <%--const endIndex = Math.min(startIndex + pageSize, <%=totalProducts%>);--%>
+        const endIndex = startIndex + pageSize;
+        const rows = $('#productTable tbody tr');
+
+        rows.hide();
+        $(rows[0]).show();
+        for (let i = startIndex; i < endIndex; i++) {
+            $(rows[i]).show();
+        }
+    }
+
+    function navigatePage(direction) {
+        if(direction === "prev") {
+            if(currentPage > 1) {
+                currentPage--;
+                updateTable();
+            }
+        } else if (direction === 'next') {
+            if(currentPage < <%=totalPage%>) {
+                currentPage++;
+                updateTable();
+            }
+        }
+    }
 </script>
 

@@ -115,7 +115,7 @@
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
+    "settings.editor.selected.configurable": "reference.settings.project.maven.runner",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -446,7 +446,9 @@
       <workItem from="1712138799606" duration="38000" />
       <workItem from="1712237531122" duration="610000" />
       <workItem from="1712246562105" duration="2836000" />
-      <workItem from="1712364097450" duration="10530000" />
+      <workItem from="1712364097450" duration="10891000" />
+      <workItem from="1712467015942" duration="3816000" />
+      <workItem from="1712473453072" duration="8236000" />
     </task>
     <task id="LOCAL-00001" summary="First commit">
       <option name="closed" value="true" />
