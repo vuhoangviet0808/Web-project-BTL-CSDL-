@@ -42,9 +42,9 @@
         <option value="Add new Servlet" />
         <option value="Class" />
         <option value="JavaScript File" />
+        <option value="Jsp File" />
         <option value="servlet" />
         <option value="CSS File" />
-        <option value="Jsp File" />
       </list>
     </option>
   </component>
@@ -450,6 +450,11 @@
       <workItem from="1712467015942" duration="3816000" />
       <workItem from="1712473453072" duration="8385000" />
       <workItem from="1712502886251" duration="7293000" />
+      <workItem from="1712510237382" duration="28000" />
+      <workItem from="1712586879870" duration="350000" />
+      <workItem from="1712597178573" duration="1564000" />
+      <workItem from="1712598761977" duration="304000" />
+      <workItem from="1712621550996" duration="6878000" />
     </task>
     <task id="LOCAL-00001" summary="First commit">
       <option name="closed" value="true" />

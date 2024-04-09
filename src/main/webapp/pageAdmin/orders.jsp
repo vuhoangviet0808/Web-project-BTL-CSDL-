@@ -109,7 +109,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                <%  int pageSize = 5;
+                <%  int pageSize = 25;
                     int totalOrder = OrderDAO.getTotalOrder();
                     ArrayList<Order> ordersList = OrderDAO.getAllOrder();
                     assert ordersList != null;
@@ -126,7 +126,7 @@
                     <td><%= order.getOrderDate() %></td>
                     <td><span class="status text-success">&bull;</span><%= order.getStatus() %></td>
                     <td><%= order.getTotalMoney() %></td>
-                    <td><a href="#" class="view" title="View Details" data-toggle="tooltip"><i class="material-icons">&#xE5C8;</i></a></td>
+                    <td><a href="#" class="view" title="View Details" data-toggle="tooltip" onclick="showOrderDetails(<%=order.getId()%>)"><i class="material-icons">&#xE5C8;</i></a></td>
                 </tr>
                 <%
                     }
@@ -147,11 +147,33 @@
         </div>
     </div>
 </div>
+<!-- Order Detail Modal -->
+<div class="modal fade" id="orderDetailModal" tabindex="-1" role="dialog" aria-labelledby="orderDetailModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="orderDetailModalLabel">Order Details</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <iframe id="orderDetailIframe" src="" style="width: 100%; height: 500px;" frameborder="0"></iframe>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 </body>
 
 <script>
     $(document).ready(function(){
-        $('[data-toggle="tooltip"]').tooltip();
+        // $('[data-toggle="tooltip"]').tooltip();
+        hideExtraRows();
     });
 
     function hideExtraRows() {
@@ -163,9 +185,8 @@
         const selectedValue = document.getElementById("show-change").value;
         let valueSelected;
         let pageSize;
-        if(selectedValue === 'All') {
+        if(selectedValue === 25) {
             valueSelected = 25;
-            pageSize = 25;
             $('table tr').slice(1).show();
         }
         else {
@@ -235,7 +256,7 @@
             }
         }
         li[pageNum].classList.add("active");
-        updateProductTable(pageNum);
+        updateOrderTable(pageNum);
     }
 
     function updateTable(){
@@ -266,6 +287,24 @@
         } else if (direction === "next" && currentPageNumber === li.length - 2) {
             goToPage(li.length - 2);
         }
+    }
+
+    function updateOrderTable(pageNum) {
+        const productPageSize = <%=pageSize%>;
+        const startIndex = (pageNum - 1) * productPageSize ;
+        const endIndex = pageNum * productPageSize;
+        const rows = $('#orderTable tbody tr');
+
+        rows.hide();
+        for (let i = startIndex; i < endIndex; i++) {
+            $(rows[i]).show();
+        }
+    }
+
+    function showOrderDetails(orderId) {
+        var iframeUrl = "./ProcessViewDetailProduct?orderId=" + orderId;
+        document.getElementById('orderDetailIframe').src = iframeUrl;
+        $('#orderDetailModal').modal('show');
     }
 </script>
 

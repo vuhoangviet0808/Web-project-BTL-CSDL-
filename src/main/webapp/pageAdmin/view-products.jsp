@@ -64,8 +64,8 @@
                                      src="<%= product.getImageURL() %>"
                                      alt="Card image cap" width="100" height="100"></td>
                             <td><%=product.getCategory_id()%></td>
-                            <td>
-                                <button onclick="deleteProduct('<%=product.getId()%>')">-</button>
+                            <td style="text-align: center;vertical-align: middle;">
+                                <button type="button" class="btn btn-outline-info btn-circle btn-sm ml-1" onclick="deleteProduct('<%=product.getId()%>')"><i class="fa fa-trash"></i></button>
                             </td>
                         </tr>
                         <%
@@ -135,7 +135,7 @@
     }
 
     function updateProductTable(pageNum) {
-        const productPageSize = 4; // Số lượng sản phẩm trên mỗi trang
+        const productPageSize = <%=pageSize%>;
         const startIndex = (pageNum - 1) * productPageSize + 1;
         const endIndex = pageNum * productPageSize;
         const rows = $('#productTable tbody tr');

@@ -167,7 +167,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#" id="customers" onclick="loadContent('customers.html')">
+                        <a class="nav-link" href="#" id="customers" onclick="loadViewUsers()">
                             <span data-feather="users"></span>
                             Customers
                         </a>
@@ -306,6 +306,23 @@
         });
     }
 
+    function loadViewUsers() {
+        if(selectedValue) {
+            document.getElementById(selectedValue).classList.remove("active");
+        }
+        selectedValue = "customers";
+        document.getElementById(selectedValue).classList.add("active");
+        $.ajax({
+            url: "./ProcessAdminViewUsers",
+            type: "GET",
+            success: function(data) {
+                $("#content").html(data);
+            },
+            error: function(xhr, status, error) {
+                console.error('Error:', error);
+            }
+        });
+    }
 </script>
 
 </body>

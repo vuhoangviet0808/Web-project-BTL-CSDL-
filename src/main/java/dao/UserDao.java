@@ -1,7 +1,7 @@
 package dao;
 
 import model.User;
-
+import java.util.ArrayList;
 import java.sql.*;
 
 public class UserDao {
@@ -62,5 +62,22 @@ public class UserDao {
             ex.printStackTrace();
         }
         return false;
+    }
+
+    public static ArrayList<User> getAllUser() {
+        try (Connection c = openConnection()) {
+            String query = String.format("select * from users");
+            PreparedStatement ps = c.prepareStatement(query);
+            ResultSet rs = ps.executeQuery();
+            ArrayList<User> res = new ArrayList<User>();
+            while(rs.next()) {
+                User user = new User(rs.getInt("id"),rs.getString("username"),rs.getString("first_name"),rs.getString("last_name"),rs.getString("gender"),rs.getString("birthday"),rs.getString("number"),rs.getString("address"));
+                res.add(user);
+            }
+            return res;
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        return null;
     }
 }

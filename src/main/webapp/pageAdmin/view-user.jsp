@@ -1,0 +1,99 @@
+<%@ page import="model.User" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="dao.UserDao" %><%--
+  Created by IntelliJ IDEA.
+  User: ADMIN
+  Date: 08/04/2024
+  Time: 12:15 SA
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>View users</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <link href="file_js/adminPage.css" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="table-wrapper">
+                <div class="table-title">
+                    <div class="row">
+                        <div class="col-sm-8"><h2>Manage <b>Users</b></h2></div>
+                        <div class="col-sm-4">
+                            <button type="button" class="btn btn-info add-new"><i class="fa fa-plus"></i> Add New</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="table-filter">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <!-- Các bộ lọc ở đây -->
+                        </div>
+                    </div>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-striped table-hover">
+                        <thead>
+                        <tr>
+                            <th scope="col" class="border-0 text-uppercase font-medium">#</th>
+                            <th scope="col" class="border-0 text-uppercase font-medium">Name</th>
+                            <th scope="col" class="border-0 text-uppercase font-medium">Username</th>
+                            <th scope="col" class="border-0 text-uppercase font-medium">Gender</th>
+                            <th scope="col" class="border-0 text-uppercase font-medium">Birthday</th>
+                            <th scope="col" class="border-0 text-uppercase font-medium">Number</th>
+                            <th scope="col" class="border-0 text-uppercase font-medium">Manage</th>
+                        </tr>
+                        </thead>
+                        <%ArrayList<User> userList = UserDao.getAllUser();
+                        %>
+                        <tbody>
+                        <%
+                            assert userList != null;
+                            for(User user : userList) {%>
+                        <tr>
+                            <td ><%=user.getId()%></td>
+                            <td>
+                                <h6 class="font-medium mb-0"><%=user.getFirst_name() + " " + user.getLast_name()%>></h6>
+<%--                                <span class="text-muted"><%=user.getAddress()%></span>--%>
+                            </td>
+                            <td>
+                                <%=user.getUsername()%>
+                            </td>
+                            <td>
+                                <%=user.getGender()%>
+                            </td>
+                            <td>
+                                <%=user.getBirthday()%>
+                            </td>
+                            <td>
+                                <%=user.getNumber()%>
+                            </td>
+                            <td style="display: flex;justify-content: center;gap: 10px;">
+                                <button type="button" class="btn btn-outline-info btn-circle btn-sm"><i class="fa fa-key"></i></button>
+                                <button type="button" class="btn btn-outline-info btn-circle btn-sm ml-1"><i class="fa fa-trash"></i></button>
+                                <button type="button" class="btn btn-outline-info btn-circle btn-sm ml-1"><i class="fa fa-edit"></i></button>
+                                <button type="button" class="btn btn-outline-info btn-circle btn-sm ml-1"><i class="fa fa-upload"></i></button>
+                            </td>
+                        </tr>
+                        <%}%>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
