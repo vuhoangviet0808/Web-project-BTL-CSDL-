@@ -1,6 +1,7 @@
 package dao;
 
 import model.Order;
+import model.ProductInOrder;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -83,6 +84,26 @@ public class OrderDAO {
         return 0;
     }
 
+    public static ArrayList<ProductInOrder> orderDetailList(int orderId) throws SQLException {
+        ArrayList<ProductInOrder> orderDetailList = new ArrayList<>();
+        try (Connection c = openConnection())
+        {
+            String get = String.format("select c.*, p.title, p.image_url\n" +
+                    "from order_details c, products p\n" +
+                    "where c.product_id = p.id && order_id = %d", orderId);
+            PreparedStatement ps = c.prepareStatement(get);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next())
+            {
+                orderDetailList.add(new ProductInOrder(rs.getInt(3), rs.getString(8), rs.getInt(4), rs.getInt(5), rs.getString(7), rs.getString(9)));
+            }
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+        return orderDetailList;
+    }
 
 
 }

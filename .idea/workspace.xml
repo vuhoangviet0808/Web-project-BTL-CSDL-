@@ -42,8 +42,8 @@
         <option value="Add new Servlet" />
         <option value="Class" />
         <option value="JavaScript File" />
-        <option value="Jsp File" />
         <option value="servlet" />
+        <option value="Jsp File" />
         <option value="CSS File" />
       </list>
     </option>
@@ -141,7 +141,7 @@
   </component>
   <component name="RunManager">
     <configuration name="Tomcat 9.0.86" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.86" ALTERNATIVE_JRE_ENABLED="false">
-      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/lyan_war_exploded/admin" />
+      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/lyan_war_exploded/ProcessAdminAddProduct" />
       <option name="SHOW_DIALOG_ON_UPDATE" value="false" />
       <option name="UPDATING_POLICY" value="redeploy-artifacts" />
       <deployment>
@@ -454,7 +454,10 @@
       <workItem from="1712586879870" duration="350000" />
       <workItem from="1712597178573" duration="1564000" />
       <workItem from="1712598761977" duration="304000" />
-      <workItem from="1712621550996" duration="6878000" />
+      <workItem from="1712621550996" duration="7033000" />
+      <workItem from="1712633109073" duration="705000" />
+      <workItem from="1712635367477" duration="96000" />
+      <workItem from="1712681036397" duration="2922000" />
     </task>
     <task id="LOCAL-00001" summary="First commit">
       <option name="closed" value="true" />
