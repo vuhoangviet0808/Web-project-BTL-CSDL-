@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
+      <artifact name="lyan:war" />
       <artifact name="lyan:war exploded" />
     </artifacts-to-build>
   </component>
@@ -42,9 +43,9 @@
         <option value="Add new Servlet" />
         <option value="Class" />
         <option value="JavaScript File" />
-        <option value="servlet" />
         <option value="Jsp File" />
         <option value="CSS File" />
+        <option value="servlet" />
       </list>
     </option>
   </component>
@@ -141,13 +142,18 @@
   </component>
   <component name="RunManager">
     <configuration name="Tomcat 9.0.86" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.86" ALTERNATIVE_JRE_ENABLED="false">
-      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/lyan_war_exploded/ProcessAdminAddProduct" />
+      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/lyan_war_exploded/admin" />
       <option name="SHOW_DIALOG_ON_UPDATE" value="false" />
       <option name="UPDATING_POLICY" value="redeploy-artifacts" />
       <deployment>
         <artifact name="lyan:war exploded">
           <settings>
             <option name="CONTEXT_PATH" value="/lyan_war_exploded" />
+          </settings>
+        </artifact>
+        <artifact name="lyan:war">
+          <settings>
+            <option name="CONTEXT_PATH" value="/lyan_war" />
           </settings>
         </artifact>
       </deployment>
@@ -227,6 +233,7 @@
         <option name="Make" enabled="true" />
         <option name="BuildArtifacts" enabled="true">
           <artifact name="lyan:war exploded" />
+          <artifact name="lyan:war" />
         </option>
       </method>
     </configuration>
@@ -457,7 +464,10 @@
       <workItem from="1712621550996" duration="7033000" />
       <workItem from="1712633109073" duration="705000" />
       <workItem from="1712635367477" duration="96000" />
-      <workItem from="1712681036397" duration="2922000" />
+      <workItem from="1712681036397" duration="3131000" />
+      <workItem from="1712802703710" duration="805000" />
+      <workItem from="1713015788232" duration="6982000" />
+      <workItem from="1713094658559" duration="11528000" />
     </task>
     <task id="LOCAL-00001" summary="First commit">
       <option name="closed" value="true" />

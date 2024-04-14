@@ -208,3 +208,13 @@ table.table .avatar {
     font-size: 13px;
 }
 
+.tooltip {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    color: #333;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+

@@ -1,6 +1,6 @@
 package Admin;
 
-import dao.ProductDAO;
+import dao.UserDao;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,8 +11,8 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 
-@WebServlet(name = "ProcessAdminDeleteProduct", value = "/ProcessAdminDeleteProduct")
-public class ProcessAdminDeleteProduct extends HttpServlet {
+@WebServlet(name = "ProcessAdminDeleteUser", value = "/ProcessAdminDeleteUser")
+public class ProcessAdminDeleteUser extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -29,8 +29,8 @@ public class ProcessAdminDeleteProduct extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            int productId = Integer.parseInt(request.getParameter("productId"));
-            boolean deleteResult = ProductDAO.deleteProduct(productId);
+            int userId = Integer.parseInt(request.getParameter("userId"));
+            boolean deleteResult = UserDao.deleteUser(userId);
             if(deleteResult) {
                 out.println("success");
             } else {

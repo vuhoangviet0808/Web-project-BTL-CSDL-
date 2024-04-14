@@ -1,6 +1,7 @@
 <%@ page import="model.User" %>
 <%@ page import="java.util.ArrayList" %>
-<%@ page import="dao.UserDao" %><%--
+<%@ page import="dao.UserDao" %>
+<%@ page import="java.util.Objects" %><%--
   Created by IntelliJ IDEA.
   User: ADMIN
   Date: 08/04/2024
@@ -62,11 +63,10 @@
                         <%
                             assert userList != null;
                             for(User user : userList) {%>
-                        <tr>
+                        <tr id="userRow_<%=user.getId()%>">
                             <td ><%=user.getId()%></td>
                             <td>
                                 <h6 class="font-medium mb-0"><%=user.getFirst_name() + " " + user.getLast_name()%>></h6>
-<%--                                <span class="text-muted"><%=user.getAddress()%></span>--%>
                             </td>
                             <td>
                                 <%=user.getUsername()%>
@@ -81,10 +81,12 @@
                                 <%=user.getNumber()%>
                             </td>
                             <td style="display: flex;justify-content: center;gap: 10px;">
-                                <button type="button" class="btn btn-outline-info btn-circle btn-sm"><i class="fa fa-key"></i></button>
-                                <button type="button" class="btn btn-outline-info btn-circle btn-sm ml-1"><i class="fa fa-trash"></i></button>
-                                <button type="button" class="btn btn-outline-info btn-circle btn-sm ml-1"><i class="fa fa-edit"></i></button>
-                                <button type="button" class="btn btn-outline-info btn-circle btn-sm ml-1"><i class="fa fa-upload"></i></button>
+                                <%if(user.getStatus().equals("unlock")) {%>
+                                    <button title="Lock" type="button" class="btn btn-outline-info btn-circle btn-sm" onclick="lockUser(<%=user.getId()%>)"><i class="fa fa-key"></i></button>
+                                <%} else {%>
+                                <button title="Lock" type="button" class="btn btn-outline-info btn-circle btn-sm" onclick="unlockUser(<%=user.getId()%>)"><i class="fa fa-key"></i></button>
+                                <%}%>
+                                <button title="Delete" type="button" class="btn btn-outline-info btn-circle btn-sm ml-1" onclick="deleteUser(<%=user.getId()%>)"><i class="fa fa-trash"></i></button>
                             </td>
                         </tr>
                         <%}%>
@@ -97,3 +99,50 @@
 </div>
 </body>
 </html>
+
+<script>
+    function deleteUser(userId){
+        if(confirm("Xác nhận xóa tài khoản ?")) {
+            $.ajax ({
+                type: "POST",
+                url: "./ProcessAdminDeleteUser",
+                data: { userId: userId},
+                success: function(response) {
+                    alert(response);
+                    if(response.trim() === "success"){
+                        $("#userRow_" + userId).hide();
+                    }
+                }
+            });
+        }
+    }
+
+    function lockUser(userId) {
+        $.ajax ({
+            type: "POST",
+            url: "./ProcessAdminStatusUser",
+            data: {
+                userId: userId,
+                action: 'lock'
+            },
+            success: function(response) {
+                console.log(response);
+            }
+        });
+    }
+
+    function unlockUser(userId) {
+        $.ajax ({
+            type: "POST",
+            url: "./ProcessAdminStatusUser",
+            data: {
+                userId: userId,
+                action: 'unlock'
+            },
+            success: function(response) {
+                console.log(response);
+            }
+        });
+    }
+
+</script>

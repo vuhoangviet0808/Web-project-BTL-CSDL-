@@ -80,4 +80,31 @@ public class UserDao {
         }
         return null;
     }
+
+    public static boolean deleteUser(int userId) {
+        try (Connection c = openConnection()) {
+            String delete = String.format("delete from users where id = %d",userId);
+            PreparedStatement ps = c.prepareStatement(delete);
+            int rowsAffected = ps.executeUpdate();
+            if (rowsAffected > 0) {
+                return true;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    public static boolean statusUser(int userId, String status) {
+        try (Connection c = openConnection();
+             PreparedStatement stmt = c.prepareStatement("UPDATE users SET status = ? WHERE id = ?")) {
+            stmt.setString(1, status);
+            stmt.setInt(2, userId);
+            int rowsAffected = stmt.executeUpdate();
+            return rowsAffected > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
 }
