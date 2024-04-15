@@ -81,11 +81,7 @@
                                 <%=user.getNumber()%>
                             </td>
                             <td style="display: flex;justify-content: center;gap: 10px;">
-                                <%if(user.getStatus().equals("unlock")) {%>
-                                    <button title="Lock" type="button" class="btn btn-outline-info btn-circle btn-sm" onclick="lockUser(<%=user.getId()%>)"><i class="fa fa-key"></i></button>
-                                <%} else {%>
-                                <button title="Lock" type="button" class="btn btn-outline-info btn-circle btn-sm" onclick="unlockUser(<%=user.getId()%>)"><i class="fa fa-key"></i></button>
-                                <%}%>
+                                <button id="userState<%=user.getId()%>" title="Lock" type="button" class="<%=((Objects.equals(user.getStatus(), "lock")) ? "active":"")%> btn btn-outline-info btn-circle btn-sm btn-lock" onclick="changeUserStatus(<%=user.getId()%>)"><i class="fa fa-key"></i></button>
                                 <button title="Delete" type="button" class="btn btn-outline-info btn-circle btn-sm ml-1" onclick="deleteUser(<%=user.getId()%>)"><i class="fa fa-trash"></i></button>
                             </td>
                         </tr>
@@ -117,32 +113,28 @@
         }
     }
 
-    function lockUser(userId) {
-        $.ajax ({
+    function changeUserStatus(userId) {
+        $.ajax({
             type: "POST",
             url: "./ProcessAdminStatusUser",
             data: {
                 userId: userId,
-                action: 'lock'
+                action: $("#userState" + userId).hasClass('active') ? 'unlock' : 'lock'
             },
             success: function(response) {
-                console.log(response);
+                alert(response);
+                if (response.trim() === "success") {
+                    const button = $("#userState" + userId);
+                    if (button.hasClass('active')) {
+                        button.removeClass('active');
+                    } else {
+                        button.addClass('active');
+                    }
+                }
             }
         });
     }
 
-    function unlockUser(userId) {
-        $.ajax ({
-            type: "POST",
-            url: "./ProcessAdminStatusUser",
-            data: {
-                userId: userId,
-                action: 'unlock'
-            },
-            success: function(response) {
-                console.log(response);
-            }
-        });
-    }
+
 
 </script>

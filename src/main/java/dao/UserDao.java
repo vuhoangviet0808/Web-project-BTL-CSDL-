@@ -71,7 +71,7 @@ public class UserDao {
             ResultSet rs = ps.executeQuery();
             ArrayList<User> res = new ArrayList<User>();
             while(rs.next()) {
-                User user = new User(rs.getInt("id"),rs.getString("username"),rs.getString("first_name"),rs.getString("last_name"),rs.getString("gender"),rs.getString("birthday"),rs.getString("number"),rs.getString("address"));
+                User user = new User(rs.getInt("id"),rs.getString("username"),rs.getString("first_name"),rs.getString("last_name"),rs.getString("gender"),rs.getString("birthday"),rs.getString("number"),rs.getString("address"),rs.getString("status"));
                 res.add(user);
             }
             return res;
