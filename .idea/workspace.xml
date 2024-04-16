@@ -42,10 +42,10 @@
       <list>
         <option value="Add new Servlet" />
         <option value="Class" />
-        <option value="JavaScript File" />
-        <option value="Jsp File" />
-        <option value="CSS File" />
         <option value="servlet" />
+        <option value="Jsp File" />
+        <option value="JavaScript File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -134,6 +134,7 @@
       <recent name="C:\Users\LynG\IdeaProjects\lyan\src\main\webapp" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\CSDL\Web-project-BTL-CSDL--nb\src\main\webapp\file_js\bootstrap\dist\css" />
       <recent name="D:\CSDL\Web-project-BTL-CSDL--nb\src\main\webapp" />
       <recent name="D:\CSDL\Web-project-BTL-CSDL--nb\src\main" />
       <recent name="C:\Users\LynG\IdeaProjects\lyan\src\main\webapp\resources\Banner" />
@@ -470,7 +471,8 @@
       <workItem from="1713094658559" duration="11627000" />
       <workItem from="1713186431221" duration="1600000" />
       <workItem from="1713188651477" duration="2820000" />
-      <workItem from="1713191535856" duration="2080000" />
+      <workItem from="1713191535856" duration="8622000" />
+      <workItem from="1713282521275" duration="3687000" />
     </task>
     <task id="LOCAL-00001" summary="First commit">
       <option name="closed" value="true" />

@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "@popperjs/core": "^2.11.8",
+    "chart.js": "^4.4.2",
+    "font-awesome": "^4.7.0",
+    "jquery": "^3.7.1",
+    "jvectormap": "^2.0.4",
+    "metismenu": "^3.0.7"
+  }
+}

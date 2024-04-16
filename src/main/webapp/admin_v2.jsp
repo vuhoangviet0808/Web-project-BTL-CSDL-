@@ -237,7 +237,7 @@
         crossorigin="anonymous"></script>
 
 
-<script>window.jQuery || document.write('<script src="file_js/jquery-slim.min.js"><\/script>')</script><script src="/docs/4.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-zDnhMsjVZfS3hiP7oCBRmfjkQC4fzxVxFhBx8Hkz2aZX8gEvA/jsP3eXRCvzTofP" crossorigin="anonymous"></script>
+<script>window.jQuery || document.write('<script src="file_js/node_modules/jquery/dist/jquery.slim.min.js"><\/script>')</script><script src="/docs/4.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-zDnhMsjVZfS3hiP7oCBRmfjkQC4fzxVxFhBx8Hkz2aZX8gEvA/jsP3eXRCvzTofP" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.9.0/dist/feather.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.7.3/dist/Chart.min.js"></script>
 <script src="file_js/dashboard.js"></script></body>
@@ -273,7 +273,7 @@
         selectedValue = 'dash-board';
         document.getElementById(selectedValue).classList.add('active');
         $.ajax({
-            url: "pageAdmin/dash-board.jsp",
+            url: "pageAdmin/dashboard.jsp",
             type: "GET",
             success: function(data) {
                 $("#content").html(data);
