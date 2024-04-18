@@ -173,7 +173,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#" id="reports" onclick="loadContent('reports.html')">
+                        <a class="nav-link" href="#" id="reports">
                             <span data-feather="bar-chart-2"></span>
                             Reports
                         </a>
