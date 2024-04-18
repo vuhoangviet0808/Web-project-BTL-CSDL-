@@ -7,10 +7,10 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
+<%--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">--%>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+<%--    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>--%>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <style>
@@ -66,14 +66,6 @@
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
     <h1 class="h2">Dashboard</h1>
     <div class="btn-toolbar mb-2 mb-md-0">
-        <div class="input-group date btn-group mr-2" data-provide="datepicker">
-            <label>
-                <input type="text" class="form-control" placeholder="Select a date">
-            </label>
-            <div class="input-group-append">
-                <span class="input-group-text"><i class="fa fa-calendar"></i></span>
-            </div>
-        </div>
 
         <div class="input-group">
             <select class="custom-select">
@@ -159,13 +151,13 @@
             }
         }
     });
-    $(document).ready(function(){
-        $('.date').datepicker({
-            format: "mm/dd/yyyy",
-            autoclose: true,
-            todayHighlight: true
-        });
-    });
+    // $(document).ready(function(){
+    //     $('.date').datepicker({
+    //         format: "mm/dd/yyyy",
+    //         autoclose: true,
+    //         todayHighlight: true
+    //     });
+    // });
 </script>
 </body>
 </html>

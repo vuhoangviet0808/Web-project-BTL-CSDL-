@@ -178,12 +178,6 @@
                             Reports
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#" id="integrations" onclick="loadContent('integrations.html')">
-                            <span data-feather="layers"></span>
-                            Integrations
-                        </a>
-                    </li>
                 </ul>
 
                 <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
@@ -237,7 +231,7 @@
         crossorigin="anonymous"></script>
 
 
-<script>window.jQuery || document.write('<script src="file_js/node_modules/jquery/dist/jquery.slim.min.js"><\/script>')</script><script src="/docs/4.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-zDnhMsjVZfS3hiP7oCBRmfjkQC4fzxVxFhBx8Hkz2aZX8gEvA/jsP3eXRCvzTofP" crossorigin="anonymous"></script>
+<%--<script>window.jQuery || document.write('<script src="file_js/node_modules/jquery/dist/jquery.slim.min.js"><\/script>')</script><script src="/docs/4.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-zDnhMsjVZfS3hiP7oCBRmfjkQC4fzxVxFhBx8Hkz2aZX8gEvA/jsP3eXRCvzTofP" crossorigin="anonymous"></script>--%>
 <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.9.0/dist/feather.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.7.3/dist/Chart.min.js"></script>
 <script src="file_js/dashboard.js"></script></body>
